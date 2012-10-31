@@ -3,14 +3,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int shoulder = 0;
-int elbow = 0;
-
-double radian = 0;
-double lookX = 5;
-double lookY = 0;
-double lookZ = 5;
-
 void init(void) 
 {
    glClearColor (0.0, 0.0, 0.0, 0.0);
@@ -52,7 +44,7 @@ void display(void)
 
    drawTrack();
 
-   glFlush ();
+   glFlush();
 }
 
 void reshape (int w, int h)
@@ -60,50 +52,34 @@ void reshape (int w, int h)
    glViewport (0, 0, (GLsizei) w, (GLsizei) h); 
    glMatrixMode (GL_PROJECTION);
    glLoadIdentity ();
-   glFrustum(-100, 100, -100, 100, 0.99999, 20);
+   glFrustum(-100, 100, -100, 100, 0.99999, 300);
 
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
-   gluLookAt(0, 0, 1, 0, 0, 0, 0, 1, 0);
+   gluLookAt(0, 0, 1, 1, 0, 1, 0, 0, 1);
+}
+
+void moveCamera(int key)
+{
+   //TODO implement. 
+}
+
+void specialDown(int key, int x, int y)
+{
+    if (key == GLUT_KEY_UP || key == GLUT_KEY_DOWN
+            || key == GLUT_KEY_LEFT || key == GLUT_KEY_RIGHT) {
+        moveCamera(key);
+    }
 }
 
 void keyboard(unsigned char key, int x, int y)
 {
    switch (key) {
-      case 27:
-         exit(0);
-         break;
-      case 's':
-         shoulder = (shoulder + 5)%360;
-         glutPostRedisplay();
-         break;
-      case 'S':
-         shoulder = (shoulder - 5)%360;
-         glutPostRedisplay();
-         break;
-      case 'e':
-         elbow = (elbow + 5)%360;
-         glutPostRedisplay();
-         break;
-      case 'E':
-         elbow = (elbow - 5)%360;
-         glutPostRedisplay();
-         break;
+       case 27:
+           exit(0);
+           break;
    }
 }
-
-
-/*void timer(int v)*/
-/*{*/
-    /*fprintf(stderr, "timer");*/
-
-    /*lookY = 5*cos(radian);*/
-    /*lookZ = 5*sin(radian);*/
-    /*radian += M_PI/6;*/
-    /*if (radian >= 2*M_PI) radian -= 2*M_PI;*/
-    /*glutPostRedisplay();*/
-    /*glutTimerFunc(50, timer, 0);*/
-/*}*/
 
 int main(int argc, char** argv)
 {
@@ -116,7 +92,7 @@ int main(int argc, char** argv)
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
-   /*glutTimerFunc(50, timer, 0);*/
+   glutSpecialFunc(specialDown);
    glutMainLoop();
    return 0;
 }
