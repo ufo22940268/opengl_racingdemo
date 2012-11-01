@@ -1,7 +1,13 @@
 #include <math.h>
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+double eyeX = 0;
+double eyeY = 0;
+
+int angleH = 0;
+int angleV = 0;
 
 void init(void) 
 {
@@ -37,12 +43,21 @@ void drawTrack()
     glPopMatrix();
 }
 
+void drawTestBox()
+{
+    glPushMatrix();
+    //glutWireCube(80);
+    glutWireSphere(80, 20, 20);
+    glPopMatrix();
+}
+
 void display(void)
 {
    glClear (GL_COLOR_BUFFER_BIT);
    glColor3f (1.0, 1.0, 1.0);
 
-   drawTrack();
+   //drawTrack();
+   drawTestBox();
 
    glFlush();
 }
@@ -59,26 +74,44 @@ void reshape (int w, int h)
    gluLookAt(0, 0, 1, 1, 0, 1, 0, 0, 1);
 }
 
-void moveCamera(int key)
+double toDegree(int degree)
 {
-   //TODO implement. 
-}
-
-void specialDown(int key, int x, int y)
-{
-    if (key == GLUT_KEY_UP || key == GLUT_KEY_DOWN
-            || key == GLUT_KEY_LEFT || key == GLUT_KEY_RIGHT) {
-        moveCamera(key);
-    }
+    return degree*M_PI/180;
 }
 
 void keyboard(unsigned char key, int x, int y)
 {
    switch (key) {
+       case 'w':
+           eyeX += 5;
+           break;
+       case 's':
+           eyeX -= 5;
+           break;
+       case 'a':
+           eyeY -= 5;
+           break;
+       case 'd':
+           eyeY += 5;
+           break;
+
+       case 'j':
+           angleH += 5;
+           angleH %= 360;
+           break;
+       case 'l':
+           angleH -= 5;
+           angleH %= 360;
+           break;
+
        case 27:
            exit(0);
-           break;
+           return;
    }
+
+   glLoadIdentity();
+   gluLookAt(eyeX, eyeY, 100, eyeX + cos(toDegree(angleH)), eyeY + sin(toDegree(angleH)), 100, 0, 0, 1);
+   glutPostRedisplay();
 }
 
 int main(int argc, char** argv)
@@ -92,7 +125,6 @@ int main(int argc, char** argv)
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
-   glutSpecialFunc(specialDown);
    glutMainLoop();
    return 0;
 }
