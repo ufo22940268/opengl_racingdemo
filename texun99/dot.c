@@ -1,11 +1,10 @@
-#include <GL/glut.h>
 #include <stdlib.h>
 #include "util.h"
 
 typedef struct {
-    int x,
-    int y,
-    int color
+    int x;
+    int y;
+    int color;
 } dot;
 
 dot dots[MAX_DOTS_COUNT];

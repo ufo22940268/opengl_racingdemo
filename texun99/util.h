@@ -1,3 +1,9 @@
+#ifdef __APPLE__
+    #include <GLUT/glut.h>
+#else
+    #include <GL/glut.h>
+#endif
+
 #define PLANE_SIZE 3
 #define MOVE_SIZE 3
 #define MAX_DOTS_COUNT 200
