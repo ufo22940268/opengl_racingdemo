@@ -25,13 +25,19 @@ dot createDotFromEdge(int i)
 {
     dot d;
     
-    int x = 0;
-    int y = i*5%WINDOW_WIDTH;
+    int x = 100;
+    int y = i*5%100;
 
     srand(i);
     int vx = rand()%5;
+    if (0 - x < 0) {
+        vx = -vx;
+    }
     srand(i + 1);
     int vy = rand()%5;
+    if (0 - y < 0) {
+        vy = -vy;
+    }
 
     d.x = x;
     d.y = y;
@@ -59,8 +65,6 @@ void updatePosition()
     }
 }
 
-//TODO Dots doesn't appear in screen, probably because the clear color buffer bit instruction
-//in display method has clear the dots.
 void drawDot(dot *d)
 {
     glColor3f(1, 1, 1);
@@ -99,5 +103,4 @@ void updateDots()
     if (PROFILE) {
         test();
     }
-    drawDots();
 }
