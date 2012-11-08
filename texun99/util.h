@@ -6,7 +6,10 @@
 
 #define PLANE_SIZE 3
 #define MOVE_SIZE 3
+#define WINDOW_WIDTH 500
+#define WINDOW_HEIGHT 500
 #define MAX_DOTS_COUNT 200
+#define TEST_DOTS_COUNT 5
 
 #define REFRESH_INTERVAL 50
 

@@ -11,8 +11,10 @@ void display(void)
 {
    glClear (GL_COLOR_BUFFER_BIT);
    glColor3f (1.0, 1.0, 1.0);
-   movePlane(0.3, 0);
    drawPlane();
+
+   glColor3f (1.0, 0, 0);
+
    glFlush ();
 }
 
@@ -56,13 +58,14 @@ void timer(int value)
 {
     updateDots();
     glutPostRedisplay();
+    glutTimerFunc(REFRESH_INTERVAL, timer, 0);
 }
 
 int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
    glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-   glutInitWindowSize (500, 500); 
+   glutInitWindowSize (WINDOW_WIDTH, WINDOW_HEIGHT); 
    glutInitWindowPosition (100, 100);
    glutCreateWindow (argv[0]);
    init ();

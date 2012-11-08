@@ -1,522 +1,308 @@
-	1.vim	/^cnoremap  <Home>$/;"	m
 	Session.vim	/^cnoremap  <Home>$/;"	m
-	1.vim	/^cnoremap  <End>$/;"	m
+	Session.vim	/^map <silent>  :call DWM_Close()$/;"	m
 	Session.vim	/^cnoremap  <End>$/;"	m
-S	1.vim	/^imap S <Plug>ISurround$/;"	m
 S	Session.vim	/^imap S <Plug>ISurround$/;"	m
-s	1.vim	/^imap s <Plug>Isurround$/;"	m
 s	Session.vim	/^imap s <Plug>Isurround$/;"	m
-		1.vim	/^inoremap <silent> 	 =TriggerSnippet()$/;"	m
+	Session.vim	/^map <silent>  :call DWM_GrowMaster()$/;"	m
 		Session.vim	/^inoremap <silent> 	 =TriggerSnippet()$/;"	m
-	1.vim	/^map   \/$/;"	m
 	Session.vim	/^map   \/$/;"	m
-	1.vim	/^cnoremap  $/;"	m
 	Session.vim	/^cnoremap  $/;"	m
-	1.vim	/^nmap  :JavaBrowser$/;"	m
-	Session.vim	/^nmap  :JavaBrowser$/;"	m
-	1.vim	/^imap  <Plug>SuperTabForward$/;"	m
+	Session.vim	/^map <silent>  W$/;"	m
+	Session.vim	/^noremap  :TlistToggle$/;"	m
 	Session.vim	/^imap  <Plug>SuperTabForward$/;"	m
-	1.vim	/^imap  <Plug>SuperTabBackward$/;"	m
+	Session.vim	/^map <silent>  :call DWM_New()$/;"	m
 	Session.vim	/^imap  <Plug>SuperTabBackward$/;"	m
-		1.vim	/^inoremap <silent> 	 =ShowAvailableSnips()$/;"	m
 		Session.vim	/^inoremap <silent> 	 =ShowAvailableSnips()$/;"	m
-	1.vim	/^imap  <Plug>Isurround$/;"	m
 	Session.vim	/^imap  <Plug>Isurround$/;"	m
-	1.vim	/^map  :WMToggle$/;"	m
 	Session.vim	/^map  :WMToggle$/;"	m
-c	1.vim	/^nmap c :cs find c =expand("<cword>")$/;"	m
 c	Session.vim	/^nmap c :cs find c =expand("<cword>")$/;"	m
-d	1.vim	/^nmap d :cs find d =expand("<cword>")$/;"	m
 d	Session.vim	/^nmap d :cs find d =expand("<cword>")$/;"	m
-e	1.vim	/^nmap e :cs find e =expand("<cword>")$/;"	m
 e	Session.vim	/^nmap e :cs find e =expand("<cword>")$/;"	m
-f	1.vim	/^nmap f :cs find f =expand("<cfile>")$/;"	m
 f	Session.vim	/^nmap f :cs find f =expand("<cfile>")$/;"	m
-g	1.vim	/^nmap g :cs find g =expand("<cword>")$/;"	m
 g	Session.vim	/^nmap g :cs find g =expand("<cword>")$/;"	m
-i	1.vim	/^nmap i :cs find i ^=expand("<cfile>")$/;"	m
 i	Session.vim	/^nmap i :cs find i ^=expand("<cfile>")$/;"	m
-s	1.vim	/^nmap s :cs find s =expand("<cword>")$/;"	m
 s	Session.vim	/^nmap s :cs find s =expand("<cword>")$/;"	m
-t	1.vim	/^nmap t :cs find t =expand("<cword>")$/;"	m
 t	Session.vim	/^nmap t :cs find t =expand("<cword>")$/;"	m
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-$<	1.vim	/^vnoremap $< `>a -->`<i<!-- $/;"	m
+!_TAG_PROGRAM_VERSION	5.8	//
 $<	Session.vim	/^vnoremap $< `>a -->`<i<!-- $/;"	m
-$$	1.vim	/^vnoremap $$ `>a"`<i"$/;"	m
 $$	Session.vim	/^vnoremap $$ `>a"`<i"$/;"	m
-$/	1.vim	/^vnoremap $\/ `>a*\/`<i\/*$/;"	m
 $/	Session.vim	/^vnoremap $\/ `>a*\/`<i\/*$/;"	m
-$1	1.vim	/^vnoremap $1 `>a)`<i($/;"	m
 $1	Session.vim	/^vnoremap $1 `>a)`<i($/;"	m
-$2	1.vim	/^vnoremap $2 `>a]`<i[$/;"	m
 $2	Session.vim	/^vnoremap $2 `>a]`<i[$/;"	m
-$3	1.vim	/^vnoremap $3 `>a}`<i{$/;"	m
 $3	Session.vim	/^vnoremap $3 `>a}`<i{$/;"	m
-$c	1.vim	/^inoremap $c \/**$/;"	m
 $c	Session.vim	/^inoremap $c \/**$/;"	m
-$q	1.vim	/^vnoremap $q `>a'`<i'$/;"	m
 $q	Session.vim	/^vnoremap $q `>a'`<i'$/;"	m
-$td	1.vim	/^cnoremap $td tabnew ~\/Desktop\/$/;"	m
 $td	Session.vim	/^cnoremap $td tabnew ~\/Desktop\/$/;"	m
-$th	1.vim	/^cnoremap $th tabnew ~\/$/;"	m
 $th	Session.vim	/^cnoremap $th tabnew ~\/$/;"	m
-$w	1.vim	/^vnoremap $w `>a"`<i"$/;"	m
 $w	Session.vim	/^vnoremap $w `>a"`<i"$/;"	m
-,$	1.vim	/^map ,$ :syntax sync fromstart$/;"	m
 ,$	Session.vim	/^map ,$ :syntax sync fromstart$/;"	m
-,,B	1.vim	/^nnoremap <silent> ,,B :call EasyMotion#WBW(0, 1)$/;"	m
-,,B	1.vim	/^onoremap <silent> ,,B :call EasyMotion#WBW(0, 1)$/;"	m
-,,B	1.vim	/^vnoremap <silent> ,,B :call EasyMotion#WBW(1, 1)$/;"	m
 ,,B	Session.vim	/^nnoremap <silent> ,,B :call EasyMotion#WBW(0, 1)$/;"	m
 ,,B	Session.vim	/^onoremap <silent> ,,B :call EasyMotion#WBW(0, 1)$/;"	m
 ,,B	Session.vim	/^vnoremap <silent> ,,B :call EasyMotion#WBW(1, 1)$/;"	m
-,,E	1.vim	/^nnoremap <silent> ,,E :call EasyMotion#EW(0, 0)$/;"	m
-,,E	1.vim	/^onoremap <silent> ,,E :call EasyMotion#EW(0, 0)$/;"	m
-,,E	1.vim	/^vnoremap <silent> ,,E :call EasyMotion#EW(1, 0)$/;"	m
 ,,E	Session.vim	/^nnoremap <silent> ,,E :call EasyMotion#EW(0, 0)$/;"	m
 ,,E	Session.vim	/^onoremap <silent> ,,E :call EasyMotion#EW(0, 0)$/;"	m
 ,,E	Session.vim	/^vnoremap <silent> ,,E :call EasyMotion#EW(1, 0)$/;"	m
-,,F	1.vim	/^nnoremap <silent> ,,F :call EasyMotion#F(0, 1)$/;"	m
-,,F	1.vim	/^onoremap <silent> ,,F :call EasyMotion#F(0, 1)$/;"	m
-,,F	1.vim	/^vnoremap <silent> ,,F :call EasyMotion#F(1, 1)$/;"	m
 ,,F	Session.vim	/^nnoremap <silent> ,,F :call EasyMotion#F(0, 1)$/;"	m
 ,,F	Session.vim	/^onoremap <silent> ,,F :call EasyMotion#F(0, 1)$/;"	m
 ,,F	Session.vim	/^vnoremap <silent> ,,F :call EasyMotion#F(1, 1)$/;"	m
-,,N	1.vim	/^nnoremap <silent> ,,N :call EasyMotion#Search(0, 1)$/;"	m
-,,N	1.vim	/^onoremap <silent> ,,N :call EasyMotion#Search(0, 1)$/;"	m
-,,N	1.vim	/^vnoremap <silent> ,,N :call EasyMotion#Search(1, 1)$/;"	m
 ,,N	Session.vim	/^nnoremap <silent> ,,N :call EasyMotion#Search(0, 1)$/;"	m
 ,,N	Session.vim	/^onoremap <silent> ,,N :call EasyMotion#Search(0, 1)$/;"	m
 ,,N	Session.vim	/^vnoremap <silent> ,,N :call EasyMotion#Search(1, 1)$/;"	m
-,,T	1.vim	/^nnoremap <silent> ,,T :call EasyMotion#T(0, 1)$/;"	m
-,,T	1.vim	/^onoremap <silent> ,,T :call EasyMotion#T(0, 1)$/;"	m
-,,T	1.vim	/^vnoremap <silent> ,,T :call EasyMotion#T(1, 1)$/;"	m
 ,,T	Session.vim	/^nnoremap <silent> ,,T :call EasyMotion#T(0, 1)$/;"	m
 ,,T	Session.vim	/^onoremap <silent> ,,T :call EasyMotion#T(0, 1)$/;"	m
 ,,T	Session.vim	/^vnoremap <silent> ,,T :call EasyMotion#T(1, 1)$/;"	m
-,,W	1.vim	/^nnoremap <silent> ,,W :call EasyMotion#WBW(0, 0)$/;"	m
-,,W	1.vim	/^onoremap <silent> ,,W :call EasyMotion#WBW(0, 0)$/;"	m
-,,W	1.vim	/^vnoremap <silent> ,,W :call EasyMotion#WBW(1, 0)$/;"	m
 ,,W	Session.vim	/^nnoremap <silent> ,,W :call EasyMotion#WBW(0, 0)$/;"	m
 ,,W	Session.vim	/^onoremap <silent> ,,W :call EasyMotion#WBW(0, 0)$/;"	m
 ,,W	Session.vim	/^vnoremap <silent> ,,W :call EasyMotion#WBW(1, 0)$/;"	m
-,,b	1.vim	/^nnoremap <silent> ,,b :call EasyMotion#WB(0, 1)$/;"	m
-,,b	1.vim	/^onoremap <silent> ,,b :call EasyMotion#WB(0, 1)$/;"	m
-,,b	1.vim	/^vnoremap <silent> ,,b :call EasyMotion#WB(1, 1)$/;"	m
 ,,b	Session.vim	/^nnoremap <silent> ,,b :call EasyMotion#WB(0, 1)$/;"	m
 ,,b	Session.vim	/^onoremap <silent> ,,b :call EasyMotion#WB(0, 1)$/;"	m
 ,,b	Session.vim	/^vnoremap <silent> ,,b :call EasyMotion#WB(1, 1)$/;"	m
-,,e	1.vim	/^nnoremap <silent> ,,e :call EasyMotion#E(0, 0)$/;"	m
-,,e	1.vim	/^onoremap <silent> ,,e :call EasyMotion#E(0, 0)$/;"	m
-,,e	1.vim	/^vnoremap <silent> ,,e :call EasyMotion#E(1, 0)$/;"	m
 ,,e	Session.vim	/^nnoremap <silent> ,,e :call EasyMotion#E(0, 0)$/;"	m
 ,,e	Session.vim	/^onoremap <silent> ,,e :call EasyMotion#E(0, 0)$/;"	m
 ,,e	Session.vim	/^vnoremap <silent> ,,e :call EasyMotion#E(1, 0)$/;"	m
-,,f	1.vim	/^nnoremap <silent> ,,f :call EasyMotion#F(0, 0)$/;"	m
-,,f	1.vim	/^onoremap <silent> ,,f :call EasyMotion#F(0, 0)$/;"	m
-,,f	1.vim	/^vnoremap <silent> ,,f :call EasyMotion#F(1, 0)$/;"	m
 ,,f	Session.vim	/^nnoremap <silent> ,,f :call EasyMotion#F(0, 0)$/;"	m
 ,,f	Session.vim	/^onoremap <silent> ,,f :call EasyMotion#F(0, 0)$/;"	m
 ,,f	Session.vim	/^vnoremap <silent> ,,f :call EasyMotion#F(1, 0)$/;"	m
-,,gE	1.vim	/^nnoremap <silent> ,,gE :call EasyMotion#EW(0, 1)$/;"	m
-,,gE	1.vim	/^onoremap <silent> ,,gE :call EasyMotion#EW(0, 1)$/;"	m
-,,gE	1.vim	/^vnoremap <silent> ,,gE :call EasyMotion#EW(1, 1)$/;"	m
 ,,gE	Session.vim	/^nnoremap <silent> ,,gE :call EasyMotion#EW(0, 1)$/;"	m
 ,,gE	Session.vim	/^onoremap <silent> ,,gE :call EasyMotion#EW(0, 1)$/;"	m
 ,,gE	Session.vim	/^vnoremap <silent> ,,gE :call EasyMotion#EW(1, 1)$/;"	m
-,,ge	1.vim	/^nnoremap <silent> ,,ge :call EasyMotion#E(0, 1)$/;"	m
-,,ge	1.vim	/^onoremap <silent> ,,ge :call EasyMotion#E(0, 1)$/;"	m
-,,ge	1.vim	/^vnoremap <silent> ,,ge :call EasyMotion#E(1, 1)$/;"	m
 ,,ge	Session.vim	/^nnoremap <silent> ,,ge :call EasyMotion#E(0, 1)$/;"	m
 ,,ge	Session.vim	/^onoremap <silent> ,,ge :call EasyMotion#E(0, 1)$/;"	m
 ,,ge	Session.vim	/^vnoremap <silent> ,,ge :call EasyMotion#E(1, 1)$/;"	m
-,,j	1.vim	/^nnoremap <silent> ,,j :call EasyMotion#JK(0, 0)$/;"	m
-,,j	1.vim	/^onoremap <silent> ,,j :call EasyMotion#JK(0, 0)$/;"	m
-,,j	1.vim	/^vnoremap <silent> ,,j :call EasyMotion#JK(1, 0)$/;"	m
 ,,j	Session.vim	/^nnoremap <silent> ,,j :call EasyMotion#JK(0, 0)$/;"	m
 ,,j	Session.vim	/^onoremap <silent> ,,j :call EasyMotion#JK(0, 0)$/;"	m
 ,,j	Session.vim	/^vnoremap <silent> ,,j :call EasyMotion#JK(1, 0)$/;"	m
-,,k	1.vim	/^nnoremap <silent> ,,k :call EasyMotion#JK(0, 1)$/;"	m
-,,k	1.vim	/^onoremap <silent> ,,k :call EasyMotion#JK(0, 1)$/;"	m
-,,k	1.vim	/^vnoremap <silent> ,,k :call EasyMotion#JK(1, 1)$/;"	m
 ,,k	Session.vim	/^nnoremap <silent> ,,k :call EasyMotion#JK(0, 1)$/;"	m
 ,,k	Session.vim	/^onoremap <silent> ,,k :call EasyMotion#JK(0, 1)$/;"	m
 ,,k	Session.vim	/^vnoremap <silent> ,,k :call EasyMotion#JK(1, 1)$/;"	m
-,,n	1.vim	/^nnoremap <silent> ,,n :call EasyMotion#Search(0, 0)$/;"	m
-,,n	1.vim	/^onoremap <silent> ,,n :call EasyMotion#Search(0, 0)$/;"	m
-,,n	1.vim	/^vnoremap <silent> ,,n :call EasyMotion#Search(1, 0)$/;"	m
 ,,n	Session.vim	/^nnoremap <silent> ,,n :call EasyMotion#Search(0, 0)$/;"	m
 ,,n	Session.vim	/^onoremap <silent> ,,n :call EasyMotion#Search(0, 0)$/;"	m
 ,,n	Session.vim	/^vnoremap <silent> ,,n :call EasyMotion#Search(1, 0)$/;"	m
-,,t	1.vim	/^nnoremap <silent> ,,t :call EasyMotion#T(0, 0)$/;"	m
-,,t	1.vim	/^onoremap <silent> ,,t :call EasyMotion#T(0, 0)$/;"	m
-,,t	1.vim	/^vnoremap <silent> ,,t :call EasyMotion#T(1, 0)$/;"	m
 ,,t	Session.vim	/^nnoremap <silent> ,,t :call EasyMotion#T(0, 0)$/;"	m
 ,,t	Session.vim	/^onoremap <silent> ,,t :call EasyMotion#T(0, 0)$/;"	m
 ,,t	Session.vim	/^vnoremap <silent> ,,t :call EasyMotion#T(1, 0)$/;"	m
-,,w	1.vim	/^nnoremap <silent> ,,w :call EasyMotion#WB(0, 0)$/;"	m
-,,w	1.vim	/^onoremap <silent> ,,w :call EasyMotion#WB(0, 0)$/;"	m
-,,w	1.vim	/^vnoremap <silent> ,,w :call EasyMotion#WB(1, 0)$/;"	m
 ,,w	Session.vim	/^nnoremap <silent> ,,w :call EasyMotion#WB(0, 0)$/;"	m
 ,,w	Session.vim	/^onoremap <silent> ,,w :call EasyMotion#WB(0, 0)$/;"	m
 ,,w	Session.vim	/^vnoremap <silent> ,,w :call EasyMotion#WB(1, 0)$/;"	m
-,1	1.vim	/^map ,1 :set syntax=cheetah$/;"	m
 ,1	Session.vim	/^map ,1 :set syntax=cheetah$/;"	m
-,2	1.vim	/^map ,2 :set syntax=xhtml$/;"	m
 ,2	Session.vim	/^map ,2 :set syntax=xhtml$/;"	m
-,3	1.vim	/^map ,3 :set syntax=python$/;"	m
 ,3	Session.vim	/^map ,3 :set syntax=python$/;"	m
-,4	1.vim	/^map ,4 :set ft=javascript$/;"	m
 ,4	Session.vim	/^map ,4 :set ft=javascript$/;"	m
-,ac	1.vim	/^map ,ac :!adb_connect && pactive $TARGET$/;"	m
 ,ac	Session.vim	/^map ,ac :!adb_connect && pactive $TARGET$/;"	m
-,al	1.vim	/^map ,al :!adb_connect&&adb logcat$/;"	m
 ,al	Session.vim	/^map ,al :!adb_connect&&adb logcat$/;"	m
-,b	1.vim	/^nnoremap <silent> ,b :CommandTBuffer$/;"	m
 ,b	Session.vim	/^nnoremap <silent> ,b :CommandTBuffer$/;"	m
-,bc	1.vim	/^noremap <silent> ,bc :!find . -name *.java > cscope.files && cscope -b -q$/;"	m
 ,bc	Session.vim	/^noremap <silent> ,bc :!find . -name *.java > cscope.files && cscope -b -q$/;"	m
-,bt	1.vim	/^map <silent> ,bt :!ctags -R --exclude=\\.* $/;"	m
-,bt	Session.vim	/^map <silent> ,bt :!ctags -R --exclude=\\.* $/;"	m
-,c	1.vim	/^nmap ,c  <Plug>NERDCommenterToggle$/;"	m
+,bt	Session.vim	/^noremap ,bt :!ctags -R$/;"	m
 ,c	Session.vim	/^nmap ,c  <Plug>NERDCommenterToggle$/;"	m
-,c$	1.vim	/^nmap ,c$ <Plug>NERDCommenterToEOL$/;"	m
 ,c$	Session.vim	/^nmap ,c$ <Plug>NERDCommenterToEOL$/;"	m
-,cA	1.vim	/^nmap ,cA <Plug>NERDCommenterAppend$/;"	m
 ,cA	Session.vim	/^nmap ,cA <Plug>NERDCommenterAppend$/;"	m
-,cD	1.vim	/^nmap <silent> ,cD <Plug>VCSDelete$/;"	m
 ,cD	Session.vim	/^nmap <silent> ,cD <Plug>VCSDelete$/;"	m
-,cG	1.vim	/^nmap <silent> ,cG <Plug>VCSClearAndGotoOriginal$/;"	m
 ,cG	Session.vim	/^nmap <silent> ,cG <Plug>VCSClearAndGotoOriginal$/;"	m
-,cL	1.vim	/^nmap <silent> ,cL <Plug>VCSLock$/;"	m
 ,cL	Session.vim	/^nmap <silent> ,cL <Plug>VCSLock$/;"	m
-,cN	1.vim	/^nmap <silent> ,cN <Plug>VCSSplitAnnotate$/;"	m
 ,cN	Session.vim	/^nmap <silent> ,cN <Plug>VCSSplitAnnotate$/;"	m
-,cU	1.vim	/^nmap <silent> ,cU <Plug>VCSUnlock$/;"	m
 ,cU	Session.vim	/^nmap <silent> ,cU <Plug>VCSUnlock$/;"	m
-,ca	1.vim	/^nmap ,ca <Plug>NERDCommenterAltDelims$/;"	m
 ,ca	Session.vim	/^nmap ,ca <Plug>NERDCommenterAltDelims$/;"	m
-,caL	1.vim	/^nmap ,caL <Plug>CalendarH$/;"	m
 ,caL	Session.vim	/^nmap ,caL <Plug>CalendarH$/;"	m
-,cal	1.vim	/^nmap ,cal <Plug>CalendarV$/;"	m
 ,cal	Session.vim	/^nmap ,cal <Plug>CalendarV$/;"	m
-,cb	1.vim	/^nmap ,cb <Plug>NERDCommenterAlignBoth$/;"	m
 ,cb	Session.vim	/^nmap ,cb <Plug>NERDCommenterAlignBoth$/;"	m
-,cc	1.vim	/^nmap ,cc <Plug>NERDCommenterComment$/;"	m
 ,cc	Session.vim	/^nmap ,cc <Plug>NERDCommenterComment$/;"	m
-,cd	1.vim	/^noremap ,cd :call CdToProjectRoot()$/;"	m
 ,cd	Session.vim	/^noremap ,cd :call CdToProjectRoot()$/;"	m
-,cg	1.vim	/^nmap <silent> ,cg <Plug>VCSGotoOriginal$/;"	m
 ,cg	Session.vim	/^nmap <silent> ,cg <Plug>VCSGotoOriginal$/;"	m
-,ci	1.vim	/^nmap ,ci <Plug>NERDCommenterInvert$/;"	m
 ,ci	Session.vim	/^nmap ,ci <Plug>NERDCommenterInvert$/;"	m
-,cl	1.vim	/^nmap ,cl <Plug>NERDCommenterAlignLeft$/;"	m
 ,cl	Session.vim	/^nmap ,cl <Plug>NERDCommenterAlignLeft$/;"	m
-,cm	1.vim	/^nmap ,cm <Plug>NERDCommenterMinimal$/;"	m
 ,cm	Session.vim	/^nmap ,cm <Plug>NERDCommenterMinimal$/;"	m
-,cn	1.vim	/^nmap ,cn <Plug>NERDCommenterNested$/;"	m
 ,cn	Session.vim	/^nmap ,cn <Plug>NERDCommenterNested$/;"	m
-,cq	1.vim	/^nmap <silent> ,cq <Plug>VCSRevert$/;"	m
 ,cq	Session.vim	/^nmap <silent> ,cq <Plug>VCSRevert$/;"	m
-,cr	1.vim	/^nmap <silent> ,cr <Plug>VCSReview$/;"	m
 ,cr	Session.vim	/^nmap <silent> ,cr <Plug>VCSReview$/;"	m
-,cs	1.vim	/^nmap ,cs <Plug>NERDCommenterSexy$/;"	m
 ,cs	Session.vim	/^nmap ,cs <Plug>NERDCommenterSexy$/;"	m
-,cu	1.vim	/^nmap ,cu <Plug>NERDCommenterUncomment$/;"	m
 ,cu	Session.vim	/^nmap ,cu <Plug>NERDCommenterUncomment$/;"	m
-,cv	1.vim	/^nmap <silent> ,cv <Plug>VCSVimDiff$/;"	m
 ,cv	Session.vim	/^nmap <silent> ,cv <Plug>VCSVimDiff$/;"	m
-,cy	1.vim	/^nmap ,cy <Plug>NERDCommenterYank$/;"	m
 ,cy	Session.vim	/^nmap ,cy <Plug>NERDCommenterYank$/;"	m
-,dd	1.vim	/^noremap ,dd :call DebugInnerOuterContacts()$/;"	m
 ,dd	Session.vim	/^noremap ,dd :call DebugInnerOuterContacts()$/;"	m
-,di	1.vim	/^noremap ,di :call DebugInnerOuterContacts()$/;"	m
 ,di	Session.vim	/^noremap ,di :call DebugInnerOuterContacts()$/;"	m
-,fd	1.vim	/^nmap ,fd :se ff=dos$/;"	m
 ,fd	Session.vim	/^nmap ,fd :se ff=dos$/;"	m
-,fu	1.vim	/^nmap ,fu :se ff=unix$/;"	m
 ,fu	Session.vim	/^nmap ,fu :se ff=unix$/;"	m
-,m	1.vim	/^noremap ,m :make$/;"	m
 ,m	Session.vim	/^noremap ,m :make$/;"	m
-,p	1.vim	/^vnoremap ,p :call EchoSelectionLines()$/;"	m
 ,p	Session.vim	/^vnoremap ,p :call EchoSelectionLines()$/;"	m
-,pl	1.vim	/^noremap ,pl :call PushLarge()$/;"	m
 ,pl	Session.vim	/^noremap ,pl :call PushLarge()$/;"	m
-,pt	1.vim	/^map ,pt :set invpaste$/;"	m
 ,pt	Session.vim	/^map ,pt :set invpaste$/;"	m
-,py	1.vim	/^noremap ,py :call PushYlzhao()$/;"	m
 ,py	Session.vim	/^noremap ,py :call PushYlzhao()$/;"	m
-,q	1.vim	/^map ,q :e ~\/buffer$/;"	m
 ,q	Session.vim	/^map ,q :e ~\/buffer$/;"	m
-,rr	1.vim	/^nmap ,rr :call ReloadSnippets(snippets_dir, &filetype)$/;"	m
 ,rr	Session.vim	/^nmap ,rr :call ReloadSnippets(snippets_dir, &filetype)$/;"	m
-,s	1.vim	/^map ,s :so ~\/.vimrc$/;"	m
 ,s	Session.vim	/^map ,s :so ~\/.vimrc$/;"	m
-,s?	1.vim	/^map ,s? z=$/;"	m
 ,s?	Session.vim	/^map ,s? z=$/;"	m
-,sa	1.vim	/^map ,sa zg$/;"	m
 ,sa	Session.vim	/^map ,sa zg$/;"	m
-,scd	1.vim	/^nmap ,scd <Plug>SQLUGetColumnDef$/;"	m
 ,scd	Session.vim	/^nmap ,scd <Plug>SQLUGetColumnDef$/;"	m
-,scdt	1.vim	/^nmap ,scdt <Plug>SQLUGetColumnDataType$/;"	m
 ,scdt	Session.vim	/^nmap ,scdt <Plug>SQLUGetColumnDataType$/;"	m
-,scl	1.vim	/^nmap ,scl <Plug>SQLUCreateColumnList$/;"	m
 ,scl	Session.vim	/^nmap ,scl <Plug>SQLUCreateColumnList$/;"	m
-,scp	1.vim	/^nmap ,scp <Plug>SQLUCreateProcedure$/;"	m
 ,scp	Session.vim	/^nmap ,scp <Plug>SQLUCreateProcedure$/;"	m
-,sf	1.vim	/^nmap ,sf <Plug>SQLUFormatter$/;"	m
-,sf	1.vim	/^vmap ,sf <Plug>SQLUFormatter$/;"	m
 ,sf	Session.vim	/^nmap ,sf <Plug>SQLUFormatter$/;"	m
 ,sf	Session.vim	/^vmap ,sf <Plug>SQLUFormatter$/;"	m
-,sfr	1.vim	/^nmap ,sfr <Plug>SQLUFormatStmts$/;"	m
-,sfr	1.vim	/^vmap ,sfr <Plug>SQLUFormatStmts$/;"	m
 ,sfr	Session.vim	/^nmap ,sfr <Plug>SQLUFormatStmts$/;"	m
 ,sfr	Session.vim	/^vmap ,sfr <Plug>SQLUFormatStmts$/;"	m
-,sfs	1.vim	/^nmap ,sfs <Plug>SQLUFormatter$/;"	m
-,sfs	1.vim	/^vmap ,sfs <Plug>SQLUFormatter$/;"	m
 ,sfs	Session.vim	/^nmap ,sfs <Plug>SQLUFormatter$/;"	m
 ,sfs	Session.vim	/^vmap ,sfs <Plug>SQLUFormatter$/;"	m
-,sn	1.vim	/^map ,sn ]$/;"	m
 ,sn	Session.vim	/^map ,sn ]$/;"	m
-,sp	1.vim	/^map ,sp [$/;"	m
 ,sp	Session.vim	/^map ,sp [$/;"	m
-,t	1.vim	/^nnoremap <silent> ,t :CommandT$/;"	m
 ,t	Session.vim	/^nnoremap <silent> ,t :CommandT$/;"	m
-,tc	1.vim	/^noremap ,tc :!adb_connect$/;"	m
 ,tc	Session.vim	/^noremap ,tc :!adb_connect$/;"	m
-,tcd	1.vim	/^noremap ,tcd :call ClearDb()$/;"	m
 ,tcd	Session.vim	/^noremap ,tcd :call ClearDb()$/;"	m
-,tr	1.vim	/^noremap ,tr :!adb_connect&&adb shell stop && adb shell start$/;"	m
 ,tr	Session.vim	/^noremap ,tr :!adb_connect&&adb shell stop && adb shell start$/;"	m
-,ts	1.vim	/^noremap ,ts :!target_sync$/;"	m
 ,ts	Session.vim	/^noremap ,ts :!target_sync$/;"	m
-,u	1.vim	/^noremap ,u hgUiwe$/;"	m
 ,u	Session.vim	/^noremap ,u hgUiwe$/;"	m
-,v	1.vim	/^map ,v :e ~\/.vimrc$/;"	m
 ,v	Session.vim	/^map ,v :e ~\/.vimrc$/;"	m
-,vcs	1.vim	/^noremap ,vcs :e res\/values-zh-rCN\/strings.xml$/;"	m
 ,vcs	Session.vim	/^noremap ,vcs :e res\/values-zh-rCN\/strings.xml$/;"	m
-,ves	1.vim	/^noremap ,ves :e res\/values\/strings.xml$/;"	m
 ,ves	Session.vim	/^noremap ,ves :e res\/values\/strings.xml$/;"	m
-,vjs	1.vim	/^map ,vjs :sp ~\/.vim\/snippets\/java.snippets$/;"	m
 ,vjs	Session.vim	/^map ,vjs :sp ~\/.vim\/snippets\/java.snippets$/;"	m
-,vp	1.vim	/^map <silent> ,vp :!xdg-open %$/;"	m
 ,vp	Session.vim	/^map <silent> ,vp :!xdg-open %$/;"	m
-,vxs	1.vim	/^map ,vxs :sp ~\/.vim\/snippets\/xml.snippets$/;"	m
 ,vxs	Session.vim	/^map ,vxs :sp ~\/.vim\/snippets\/xml.snippets$/;"	m
-,w	1.vim	/^nmap ,w :w!$/;"	m
 ,w	Session.vim	/^nmap ,w :w!$/;"	m
-,wc	1.vim	/^map ,wc :call SwitchToProject("CONTACTS")$/;"	m
 ,wc	Session.vim	/^map ,wc :call SwitchToProject("CONTACTS")$/;"	m
-,wf	1.vim	/^map ,wf :call SwitchToProject("FRA")$/;"	m
 ,wf	Session.vim	/^map ,wf :call SwitchToProject("FRA")$/;"	m
-,wh	1.vim	/^map ,wh :call SwitchToProject("CALL_HISTORY")$/;"	m
 ,wh	Session.vim	/^map ,wh :call SwitchToProject("CALL_HISTORY")$/;"	m
-,wp	1.vim	/^map ,wp :call SwitchToProject("PROVIDER")$/;"	m
 ,wp	Session.vim	/^map ,wp :call SwitchToProject("PROVIDER")$/;"	m
-,wr	1.vim	/^map ,wr :call SwitchToProject("RES")$/;"	m
 ,wr	Session.vim	/^map ,wr :call SwitchToProject("RES")$/;"	m
-,x	1.vim	/^nmap ,x :xa!$/;"	m
 ,x	Session.vim	/^nmap ,x :xa!$/;"	m
-,y	1.vim	/^map ,y :YRShow$/;"	m
 ,y	Session.vim	/^map ,y :YRShow$/;"	m
-,z	1.vim	/^map ,z <Plug>ZoomWin$/;"	m
 ,z	Session.vim	/^map ,z <Plug>ZoomWin$/;"	m
-0	1.vim	/^map 0 ^$/;"	m
 0	Session.vim	/^map 0 ^$/;"	m
-03l	Session.vim	/^normal! 03l$/;"	m
-09l	1.vim	/^normal! 09l$/;"	m
-<C-Tab>	1.vim	/^inoremap <C-Tab> 	$/;"	m
+0	Session.vim	/^normal! 0$/;"	m
+<C-,>	Session.vim	/^map <silent> <C-,> :call DWM_Rotate(0)$/;"	m
+<C-.>	Session.vim	/^map <silent> <C-.> :call DWM_Rotate(1)$/;"	m
+<C-Space>	Session.vim	/^map <silent> <C-Space> :call DWM_Focus()$/;"	m
 <C-Tab>	Session.vim	/^inoremap <C-Tab> 	$/;"	m
-<F2>	1.vim	/^noremap <F2> :NERDTreeToggle$/;"	m
+<F11>	Session.vim	/^nnoremap <silent> <F11> :call conque_term#exec_file()$/;"	m
 <F2>	Session.vim	/^noremap <F2> :NERDTreeToggle$/;"	m
-<F3>	1.vim	/^noremap <F3> :NumbersToggle$/;"	m
 <F3>	Session.vim	/^noremap <F3> :NumbersToggle$/;"	m
-<F9>	1.vim	/^map <F9> ggVGg?$/;"	m
 <F9>	Session.vim	/^map <F9> ggVGg?$/;"	m
-<Nul><Nul>c	1.vim	/^nmap <Nul><Nul>c :vert scs find c =expand("<cword>")$/;"	m
+<NL>	Session.vim	/^map <silent> <NL> w$/;"	m
+<Nul>	Session.vim	/^map <silent> <Nul> :call DWM_Focus()$/;"	m
 <Nul><Nul>c	Session.vim	/^nmap <Nul><Nul>c :vert scs find c =expand("<cword>")$/;"	m
-<Nul><Nul>d	1.vim	/^nmap <Nul><Nul>d :vert scs find d =expand("<cword>")$/;"	m
 <Nul><Nul>d	Session.vim	/^nmap <Nul><Nul>d :vert scs find d =expand("<cword>")$/;"	m
-<Nul><Nul>e	1.vim	/^nmap <Nul><Nul>e :vert scs find e =expand("<cword>")$/;"	m
 <Nul><Nul>e	Session.vim	/^nmap <Nul><Nul>e :vert scs find e =expand("<cword>")$/;"	m
-<Nul><Nul>f	1.vim	/^nmap <Nul><Nul>f :vert scs find f =expand("<cfile>")$/;"	m
 <Nul><Nul>f	Session.vim	/^nmap <Nul><Nul>f :vert scs find f =expand("<cfile>")$/;"	m
-<Nul><Nul>g	1.vim	/^nmap <Nul><Nul>g :vert scs find g =expand("<cword>")$/;"	m
 <Nul><Nul>g	Session.vim	/^nmap <Nul><Nul>g :vert scs find g =expand("<cword>")$/;"	m
-<Nul><Nul>i	1.vim	/^nmap <Nul><Nul>i :vert scs find i ^=expand("<cfile>")$/;"	m
 <Nul><Nul>i	Session.vim	/^nmap <Nul><Nul>i :vert scs find i ^=expand("<cfile>")$/;"	m
-<Nul><Nul>s	1.vim	/^nmap <Nul><Nul>s :vert scs find s =expand("<cword>")$/;"	m
 <Nul><Nul>s	Session.vim	/^nmap <Nul><Nul>s :vert scs find s =expand("<cword>")$/;"	m
-<Nul><Nul>t	1.vim	/^nmap <Nul><Nul>t :vert scs find t =expand("<cword>")$/;"	m
 <Nul><Nul>t	Session.vim	/^nmap <Nul><Nul>t :vert scs find t =expand("<cword>")$/;"	m
-<Nul>c	1.vim	/^nmap <Nul>c :scs find c =expand("<cword>")$/;"	m
 <Nul>c	Session.vim	/^nmap <Nul>c :scs find c =expand("<cword>")$/;"	m
-<Nul>d	1.vim	/^nmap <Nul>d :scs find d =expand("<cword>")$/;"	m
 <Nul>d	Session.vim	/^nmap <Nul>d :scs find d =expand("<cword>")$/;"	m
-<Nul>e	1.vim	/^nmap <Nul>e :scs find e =expand("<cword>")$/;"	m
 <Nul>e	Session.vim	/^nmap <Nul>e :scs find e =expand("<cword>")$/;"	m
-<Nul>f	1.vim	/^nmap <Nul>f :scs find f =expand("<cfile>")$/;"	m
 <Nul>f	Session.vim	/^nmap <Nul>f :scs find f =expand("<cfile>")$/;"	m
-<Nul>g	1.vim	/^nmap <Nul>g :scs find g =expand("<cword>")$/;"	m
 <Nul>g	Session.vim	/^nmap <Nul>g :scs find g =expand("<cword>")$/;"	m
-<Nul>i	1.vim	/^nmap <Nul>i :scs find i ^=expand("<cfile>")$/;"	m
 <Nul>i	Session.vim	/^nmap <Nul>i :scs find i ^=expand("<cfile>")$/;"	m
-<Nul>s	1.vim	/^nmap <Nul>s :scs find s =expand("<cword>")$/;"	m
 <Nul>s	Session.vim	/^nmap <Nul>s :scs find s =expand("<cword>")$/;"	m
-<Nul>t	1.vim	/^nmap <Nul>t :scs find t =expand("<cword>")$/;"	m
 <Nul>t	Session.vim	/^nmap <Nul>t :scs find t =expand("<cword>")$/;"	m
-<Plug>CVSEdit	1.vim	/^nnoremap <silent> <Plug>CVSEdit :CVSEdit$/;"	m
 <Plug>CVSEdit	Session.vim	/^nnoremap <silent> <Plug>CVSEdit :CVSEdit$/;"	m
-<Plug>CVSEditors	1.vim	/^nnoremap <silent> <Plug>CVSEditors :CVSEditors$/;"	m
 <Plug>CVSEditors	Session.vim	/^nnoremap <silent> <Plug>CVSEditors :CVSEditors$/;"	m
-<Plug>CVSUnedit	1.vim	/^nnoremap <silent> <Plug>CVSUnedit :CVSUnedit$/;"	m
 <Plug>CVSUnedit	Session.vim	/^nnoremap <silent> <Plug>CVSUnedit :CVSUnedit$/;"	m
-<Plug>CVSWatchAdd	1.vim	/^nnoremap <silent> <Plug>CVSWatchAdd :CVSWatch add$/;"	m
 <Plug>CVSWatchAdd	Session.vim	/^nnoremap <silent> <Plug>CVSWatchAdd :CVSWatch add$/;"	m
-<Plug>CVSWatchOff	1.vim	/^nnoremap <silent> <Plug>CVSWatchOff :CVSWatch off$/;"	m
 <Plug>CVSWatchOff	Session.vim	/^nnoremap <silent> <Plug>CVSWatchOff :CVSWatch off$/;"	m
-<Plug>CVSWatchOn	1.vim	/^nnoremap <silent> <Plug>CVSWatchOn :CVSWatch on$/;"	m
 <Plug>CVSWatchOn	Session.vim	/^nnoremap <silent> <Plug>CVSWatchOn :CVSWatch on$/;"	m
-<Plug>CVSWatchRemove	1.vim	/^nnoremap <silent> <Plug>CVSWatchRemove :CVSWatch remove$/;"	m
 <Plug>CVSWatchRemove	Session.vim	/^nnoremap <silent> <Plug>CVSWatchRemove :CVSWatch remove$/;"	m
-<Plug>CVSWatchers	1.vim	/^nnoremap <silent> <Plug>CVSWatchers :CVSWatchers$/;"	m
 <Plug>CVSWatchers	Session.vim	/^nnoremap <silent> <Plug>CVSWatchers :CVSWatchers$/;"	m
-<Plug>CalendarH	1.vim	/^nnoremap <silent> <Plug>CalendarH :cal Calendar(1)$/;"	m
 <Plug>CalendarH	Session.vim	/^nnoremap <silent> <Plug>CalendarH :cal Calendar(1)$/;"	m
-<Plug>CalendarV	1.vim	/^nnoremap <silent> <Plug>CalendarV :cal Calendar(0)$/;"	m
 <Plug>CalendarV	Session.vim	/^nnoremap <silent> <Plug>CalendarV :cal Calendar(0)$/;"	m
-<Plug>NERDCommenterAlignBoth	1.vim	/^nnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment("n", "AlignBoth")$/;"	m
 <Plug>NERDCommenterAlignBoth	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment("n", "AlignBoth")$/;"	m
-<Plug>NERDCommenterAlignLeft	1.vim	/^nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("n", "AlignLeft")$/;"	m
 <Plug>NERDCommenterAlignLeft	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("n", "AlignLeft")$/;"	m
-<Plug>NERDCommenterAppend	1.vim	/^nnoremap <silent> <Plug>NERDCommenterAppend :call NERDComment("n", "Append")$/;"	m
 <Plug>NERDCommenterAppend	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterAppend :call NERDComment("n", "Append")$/;"	m
-<Plug>NERDCommenterComment	1.vim	/^nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("n", "Comment")$/;"	m
 <Plug>NERDCommenterComment	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("n", "Comment")$/;"	m
-<Plug>NERDCommenterInsert	1.vim	/^inoremap <silent> <Plug>NERDCommenterInsert  <BS>:call NERDComment('i', "insert")$/;"	m
-<Plug>NERDCommenterInsert	Session.vim	/^inoremap <silent> <Plug>NERDCommenterInsert  <BS>:call NERDComment('i', "insert")$/;"	m
-<Plug>NERDCommenterInvert	1.vim	/^nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("n", "Invert")$/;"	m
 <Plug>NERDCommenterInvert	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("n", "Invert")$/;"	m
-<Plug>NERDCommenterMinimal	1.vim	/^nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("n", "Minimal")$/;"	m
 <Plug>NERDCommenterMinimal	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("n", "Minimal")$/;"	m
-<Plug>NERDCommenterNested	1.vim	/^nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")$/;"	m
 <Plug>NERDCommenterNested	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")$/;"	m
-<Plug>NERDCommenterSexy	1.vim	/^nnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment("n", "Sexy")$/;"	m
 <Plug>NERDCommenterSexy	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment("n", "Sexy")$/;"	m
-<Plug>NERDCommenterToEOL	1.vim	/^nnoremap <silent> <Plug>NERDCommenterToEOL :call NERDComment("n", "ToEOL")$/;"	m
 <Plug>NERDCommenterToEOL	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterToEOL :call NERDComment("n", "ToEOL")$/;"	m
-<Plug>NERDCommenterToggle	1.vim	/^nnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment("n", "Toggle")$/;"	m
 <Plug>NERDCommenterToggle	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment("n", "Toggle")$/;"	m
-<Plug>NERDCommenterUncomment	1.vim	/^nnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment("n", "Uncomment")$/;"	m
 <Plug>NERDCommenterUncomment	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment("n", "Uncomment")$/;"	m
-<Plug>NERDCommenterYank	1.vim	/^nnoremap <silent> <Plug>NERDCommenterYank :call NERDComment("n", "Yank")$/;"	m
 <Plug>NERDCommenterYank	Session.vim	/^nnoremap <silent> <Plug>NERDCommenterYank :call NERDComment("n", "Yank")$/;"	m
-<Plug>NetrwBrowseX	1.vim	/^nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)$/;"	m
 <Plug>NetrwBrowseX	Session.vim	/^nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)$/;"	m
-<Plug>SurroundRepeat	1.vim	/^nnoremap <silent> <Plug>SurroundRepeat .$/;"	m
 <Plug>SurroundRepeat	Session.vim	/^nnoremap <silent> <Plug>SurroundRepeat .$/;"	m
-<Plug>VCSAdd	1.vim	/^nnoremap <silent> <Plug>VCSAdd :VCSAdd$/;"	m
 <Plug>VCSAdd	Session.vim	/^nnoremap <silent> <Plug>VCSAdd :VCSAdd$/;"	m
-<Plug>VCSAnnotate	1.vim	/^nnoremap <silent> <Plug>VCSAnnotate :VCSAnnotate$/;"	m
 <Plug>VCSAnnotate	Session.vim	/^nnoremap <silent> <Plug>VCSAnnotate :VCSAnnotate$/;"	m
-<Plug>VCSClearAndGotoOriginal	1.vim	/^nnoremap <silent> <Plug>VCSClearAndGotoOriginal :VCSGotoOriginal!$/;"	m
 <Plug>VCSClearAndGotoOriginal	Session.vim	/^nnoremap <silent> <Plug>VCSClearAndGotoOriginal :VCSGotoOriginal!$/;"	m
-<Plug>VCSCommit	1.vim	/^nnoremap <silent> <Plug>VCSCommit :VCSCommit$/;"	m
 <Plug>VCSCommit	Session.vim	/^nnoremap <silent> <Plug>VCSCommit :VCSCommit$/;"	m
-<Plug>VCSDelete	1.vim	/^nnoremap <silent> <Plug>VCSDelete :VCSDelete$/;"	m
 <Plug>VCSDelete	Session.vim	/^nnoremap <silent> <Plug>VCSDelete :VCSDelete$/;"	m
-<Plug>VCSDiff	1.vim	/^nnoremap <silent> <Plug>VCSDiff :VCSDiff$/;"	m
 <Plug>VCSDiff	Session.vim	/^nnoremap <silent> <Plug>VCSDiff :VCSDiff$/;"	m
-<Plug>VCSGotoOriginal	1.vim	/^nnoremap <silent> <Plug>VCSGotoOriginal :VCSGotoOriginal$/;"	m
 <Plug>VCSGotoOriginal	Session.vim	/^nnoremap <silent> <Plug>VCSGotoOriginal :VCSGotoOriginal$/;"	m
-<Plug>VCSInfo	1.vim	/^nnoremap <silent> <Plug>VCSInfo :VCSInfo$/;"	m
 <Plug>VCSInfo	Session.vim	/^nnoremap <silent> <Plug>VCSInfo :VCSInfo$/;"	m
-<Plug>VCSLock	1.vim	/^nnoremap <silent> <Plug>VCSLock :VCSLock$/;"	m
 <Plug>VCSLock	Session.vim	/^nnoremap <silent> <Plug>VCSLock :VCSLock$/;"	m
-<Plug>VCSLog	1.vim	/^nnoremap <silent> <Plug>VCSLog :VCSLog$/;"	m
 <Plug>VCSLog	Session.vim	/^nnoremap <silent> <Plug>VCSLog :VCSLog$/;"	m
-<Plug>VCSRevert	1.vim	/^nnoremap <silent> <Plug>VCSRevert :VCSRevert$/;"	m
 <Plug>VCSRevert	Session.vim	/^nnoremap <silent> <Plug>VCSRevert :VCSRevert$/;"	m
-<Plug>VCSReview	1.vim	/^nnoremap <silent> <Plug>VCSReview :VCSReview$/;"	m
 <Plug>VCSReview	Session.vim	/^nnoremap <silent> <Plug>VCSReview :VCSReview$/;"	m
-<Plug>VCSSplitAnnotate	1.vim	/^nnoremap <silent> <Plug>VCSSplitAnnotate :VCSAnnotate!$/;"	m
 <Plug>VCSSplitAnnotate	Session.vim	/^nnoremap <silent> <Plug>VCSSplitAnnotate :VCSAnnotate!$/;"	m
-<Plug>VCSStatus	1.vim	/^nnoremap <silent> <Plug>VCSStatus :VCSStatus$/;"	m
 <Plug>VCSStatus	Session.vim	/^nnoremap <silent> <Plug>VCSStatus :VCSStatus$/;"	m
-<Plug>VCSUnlock	1.vim	/^nnoremap <silent> <Plug>VCSUnlock :VCSUnlock$/;"	m
 <Plug>VCSUnlock	Session.vim	/^nnoremap <silent> <Plug>VCSUnlock :VCSUnlock$/;"	m
-<Plug>VCSUpdate	1.vim	/^nnoremap <silent> <Plug>VCSUpdate :VCSUpdate$/;"	m
 <Plug>VCSUpdate	Session.vim	/^nnoremap <silent> <Plug>VCSUpdate :VCSUpdate$/;"	m
-<Plug>VCSVimDiff	1.vim	/^nnoremap <silent> <Plug>VCSVimDiff :VCSVimDiff$/;"	m
 <Plug>VCSVimDiff	Session.vim	/^nnoremap <silent> <Plug>VCSVimDiff :VCSVimDiff$/;"	m
-<S-Tab>	1.vim	/^inoremap <silent> <S-Tab> =BackwardsSnippet()$/;"	m
 <S-Tab>	Session.vim	/^inoremap <silent> <S-Tab> =BackwardsSnippet()$/;"	m
-CFLAG	Makefile	/^CFLAG = -lm -lglut -lGL -lGLU$/;"	m
-PLANE_SIZE	util.h	1;"	d
-SRC	Makefile	/^SRC = main.c util.c plane.c$/;"	m
-SessionLoad	1.vim	/^let SessionLoad = 1$/;"	v
+CFLAG	Makefile	/^        CFLAG = -framework GLUT -framework OpenGL$/;"	m
+CFLAG	Makefile	/^        CFLAG = -lm -lglut -lGL -lGLU$/;"	m
+KEY_DOWN	util.h	17;"	d
+KEY_LEFT	util.h	18;"	d
+KEY_RIGHT	util.h	19;"	d
+KEY_UP	util.h	16;"	d
+MAX_DOTS_COUNT	util.h	11;"	d
+MOVE_SIZE	util.h	8;"	d
+PLANE_SIZE	util.h	7;"	d
+PROFILE	dot.c	/^const int PROFILE = 1;$/;"	v
+REFRESH_INTERVAL	util.h	14;"	d
+SRC	Makefile	/^SRC = main.c util.c plane.c dot.c$/;"	m
 SessionLoad	Session.vim	/^let SessionLoad = 1$/;"	v
-[%	1.vim	/^vmap [% [%m'gv``$/;"	m
+TEST_DOTS_COUNT	util.h	12;"	d
+UNAME	Makefile	/^UNAME := $(shell uname)$/;"	m
+WINDOW_HEIGHT	util.h	10;"	d
+WINDOW_WIDTH	util.h	9;"	d
 [%	Session.vim	/^vmap [% [%m'gv``$/;"	m
-\b	Session.vim	/^map <buffer> \\b <Plug>JavagetsetInsertBothGetterSetter$/;"	m
-\g	Session.vim	/^map <buffer> \\g <Plug>JavagetsetInsertGetterOnly$/;"	m
-\p	Session.vim	/^map <buffer> \\p <Plug>JavagetsetInsertGetterSetter$/;"	m
-\s	Session.vim	/^map <buffer> \\s <Plug>JavagetsetInsertSetterOnly$/;"	m
-]%	1.vim	/^vmap ]% ]%m'gv``$/;"	m
 ]%	Session.vim	/^vmap ]% ]%m'gv``$/;"	m
-a%	1.vim	/^vmap a% [%v]%$/;"	m
 a%	Session.vim	/^vmap a% [%v]%$/;"	m
-cs	1.vim	/^nmap cs <Plug>Csurround$/;"	m
+color	dot.c	/^    int color;$/;"	m	struct:__anon1	file:
+createDotFromEdge	dot.c	/^dot createDotFromEdge(int i)$/;"	f
 cs	Session.vim	/^nmap cs <Plug>Csurround$/;"	m
 display	main.c	/^void display(void)$/;"	f
+dot	dot.c	/^} dot;$/;"	t	typeref:struct:__anon1	file:
+dots	dot.c	/^dot dots[MAX_DOTS_COUNT];$/;"	v
+dotsCount	dot.c	/^int dotsCount = 0;$/;"	v
 drawCircle	util.c	/^void drawCircle(float r)$/;"	f
+drawDot	dot.c	/^void drawDot(dot *d)$/;"	f
+drawDots	dot.c	/^void drawDots()$/;"	f
 drawPlane	plane.c	/^void drawPlane() $/;"	f
-ds	1.vim	/^nmap ds <Plug>Dsurround$/;"	m
 ds	Session.vim	/^nmap ds <Plug>Dsurround$/;"	m
-gx	1.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
 gx	Session.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
 init	main.c	/^void init(void) $/;"	f
+initDots	dot.c	/^void initDots()$/;"	f
 keyboard	main.c	/^void keyboard(unsigned char key, int x, int y)$/;"	f
 main	main.c	/^int main(int argc, char** argv)$/;"	f
 movePlane	plane.c	/^void movePlane(float x, float y)$/;"	f
+movePlaneInDirection	plane.c	/^void movePlaneInDirection(char key)$/;"	f
 planeX	plane.c	/^float planeX = 0;$/;"	v
 planeY	plane.c	/^float planeY = 0;$/;"	v
 reshape	main.c	/^void reshape (int w, int h)$/;"	f
-s:cpo_save	1.vim	/^let s:cpo_save=&cpo$/;"	v
 s:cpo_save	Session.vim	/^let s:cpo_save=&cpo$/;"	v
-s:l	1.vim	/^let s:l = 35 - ((28 * winheight(0) + 23) \/ 47)$/;"	v
-s:l	Session.vim	/^let s:l = 15 - ((14 * winheight(0) + 23) \/ 47)$/;"	v
-s:so_save	1.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
+s:l	Session.vim	/^let s:l = 26 - ((18 * winheight(0) + 14) \/ 28)$/;"	v
 s:so_save	Session.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
-s:sx	1.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
 s:sx	Session.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
-s:wipebuf	1.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
 s:wipebuf	Session.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
+test	dot.c	/^void test() $/;"	f
+timer	main.c	/^void timer(int value)$/;"	f
 toRadians	util.c	/^float toRadians(int degree) $/;"	f
-yS	1.vim	/^nmap yS <Plug>YSurround$/;"	m
+updateDots	dot.c	/^void updateDots() $/;"	f
+updatePosition	dot.c	/^void updatePosition()$/;"	f
+vx	dot.c	/^    int vx;$/;"	m	struct:__anon1	file:
+vy	dot.c	/^    int vy;$/;"	m	struct:__anon1	file:
+x	dot.c	/^    int x;$/;"	m	struct:__anon1	file:
+y	dot.c	/^    int y;$/;"	m	struct:__anon1	file:
 yS	Session.vim	/^nmap yS <Plug>YSurround$/;"	m
-ySS	1.vim	/^nmap ySS <Plug>YSsurround$/;"	m
 ySS	Session.vim	/^nmap ySS <Plug>YSsurround$/;"	m
-ySs	1.vim	/^nmap ySs <Plug>YSsurround$/;"	m
 ySs	Session.vim	/^nmap ySs <Plug>YSsurround$/;"	m
-ys	1.vim	/^nmap ys <Plug>Ysurround$/;"	m
 ys	Session.vim	/^nmap ys <Plug>Ysurround$/;"	m
-yss	1.vim	/^nmap yss <Plug>Yssurround$/;"	m
 yss	Session.vim	/^nmap yss <Plug>Yssurround$/;"	m
-zt	1.vim	/^normal! zt$/;"	m
 zt	Session.vim	/^normal! zt$/;"	m
-ê	1.vim	/^nmap ê mz:m+$/;"	m
-ê	1.vim	/^vmap ê :m'>+$/;"	m
 ê	Session.vim	/^nmap ê mz:m+$/;"	m
 ê	Session.vim	/^vmap ê :m'>+$/;"	m
-ë	1.vim	/^nmap ë mz:m-2$/;"	m
-ë	1.vim	/^vmap ë :m'<-2$/;"	m
 ë	Session.vim	/^nmap ë mz:m-2$/;"	m
 ë	Session.vim	/^vmap ë :m'<-2$/;"	m
