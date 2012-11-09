@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #include "util.h"
 
 float toRadians(int degree) 
@@ -16,4 +17,11 @@ void drawCircle(float r)
         glVertex2f(r*cos(ra), r*sin(ra));
     }
     glEnd();
+}
+
+int timeRand()
+{
+    int s = time(NULL)%60;
+    srand(s);
+    return rand();
 }

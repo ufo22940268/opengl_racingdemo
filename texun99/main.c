@@ -11,7 +11,9 @@ void display(void)
 {
    glClear (GL_COLOR_BUFFER_BIT);
    glColor3f (1.0, 1.0, 1.0);
+
    drawPlane();
+   drawDots();
 
    glColor3f (1.0, 0, 0);
 

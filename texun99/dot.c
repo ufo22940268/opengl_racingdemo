@@ -25,13 +25,17 @@ dot createDotFromEdge(int i)
 {
     dot d;
     
-    int x = 0;
-    int y = i*5%WINDOW_WIDTH;
+    //Choose position.
+    int x = 100;
+    int y = i*5%100;
 
-    srand(i);
-    int vx = rand()%5;
-    srand(i + 1);
-    int vy = rand()%5;
+    //Choose vector.
+    /*srand(i);*/
+    int k = 0 - x < 0 ? -1 : 1;
+    int vx = timeRand()%5*k;
+    /*srand(i + 1);*/
+    k = 0 - y < 0 ? -1 : 1;
+    int vy = timeRand()%5*k;
 
     d.x = x;
     d.y = y;

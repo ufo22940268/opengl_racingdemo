@@ -25,3 +25,5 @@ void movePlane(float x, float y);
 void movePlaneInDirection(char key);
 
 void updateDots();
+
+int timeRand();
