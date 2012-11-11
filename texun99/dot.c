@@ -5,68 +5,71 @@
 
 const int PROFILE = 1;
 
-typedef struct {
-    int x;
-    int y;
-    int color;
-
-    /*
-     * vx, vy refers to the vector of the dot. every time updates
-     * dots just need to add the vx and vy to x and y
-     */
-    int vx;
-    int vy;
-} dot;
-
 dot dots[MAX_DOTS_COUNT];
 int dotsCount = 0;
 
-dot createDotFromEdge(int i)
+dot* createDotFromEdge(int i)
 {
-    dot d;
+    dot* d = (dot*)malloc(sizeof(dot));
+    int x, y;
     
-    int x = 100;
-    int y = i*5%100;
+    //Choose position.
+    chooseEdge(i, &x, &y);
+    /*int x = 100;*/
+    /*int y = i*5%100;*/
 
-    srand(i);
-    int vx = rand()%5;
-    if (0 - x < 0) {
-        vx = -vx;
-    }
-    srand(i + 1);
-    int vy = rand()%5;
-    if (0 - y < 0) {
-        vy = -vy;
-    }
+    //Choose vector.
+    int k = 0 - x < 0 ? -1 : 1;
+    int vx = timeRand(i)%5*k;
+    k = 0 - y < 0 ? -1 : 1;
+    int vy = timeRand(i)%5*k;
 
-    d.x = x;
-    d.y = y;
-    d.vx = vx;
-    d.vy = vy;
+    d->x = x;
+    d->y = y;
+    d->vx = vx;
+    d->vy = vy;
     return d;
 }
 
 void initDots()
 {
-    int i;
-    for (i = 0; i < TEST_DOTS_COUNT; i ++) {
-        dots[i] = createDotFromEdge(i);
-        dotsCount += 1;
+    while (dotStackSize() <= 5) {
+        dot* d = createDotFromEdge(dotStackSize());
+        pushDot(d);
     }
+}
+
+void removeDot(dot* d) 
+{
+    free(d);
 }
 
 void updatePosition()
 {
-    int i;
-    for (i = 0; i < dotsCount; i ++) {
-        dot *d = &dots[i];
-        d->x = (d->x + d->vx)%WINDOW_WIDTH;
-        d->y = (d->y + d->vy)%WINDOW_HEIGHT;
+    dot* d;
+    d = popDot();
+    while (d != NULL) {
+        dotToString(d);
+        d->x = d->x + d->vx;
+        d->y = d->y + d->vy;
+        if (abs(d->x) > 100 || abs(d->y) > 100) {
+            removeDot(d);
+        } else {
+            pushDot(d);
+        }
+        d = popDot();
     }
 }
 
 void drawDot(dot *d)
 {
+    //If the vector of dot equal to zero, then it means the dot
+    //is static and it doesn't need to be drawn any more.
+    if (d->vx == 0 && d->vy == 0) 
+    {
+        return;
+    }
+
     glColor3f(1, 1, 1);
     glPointSize(3);
     glBegin(GL_POINTS);
@@ -94,13 +97,14 @@ void test()
 
 void updateDots() 
 {
-    if (dotsCount == 0) {
-	initDots();
-    } else {
-        updatePosition();
-    }
+    updatePosition();
+}
 
-    if (PROFILE) {
-        test();
+void dotToString(dot* d)
+{
+    if (d == NULL) {
+        printf("null\n");
+    } else {
+        printf("x: %d, y: %d, vx %d, vy %d\n", d->x, d->y, d->vx, d->vy);
     }
 }

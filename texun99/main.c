@@ -15,8 +15,6 @@ void display(void)
    drawPlane();
    drawDots();
 
-   glColor3f (1.0, 0, 0);
-
    glFlush ();
 }
 
@@ -74,6 +72,8 @@ int main(int argc, char** argv)
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
+
+   initDots();
    glutTimerFunc(REFRESH_INTERVAL, timer, 0);
    glutMainLoop();
    return 0;
