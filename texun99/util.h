@@ -4,8 +4,9 @@
     #include <GL/glut.h>
 #endif
 
-#include "types.h"
 #include <stdbool.h>
+#include <stdlib.h>
+#include "types.h"
 
 float toRadians(int degree);
 void drawCircle(float r);

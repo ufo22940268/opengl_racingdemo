@@ -40,6 +40,7 @@ bool deleteDot(dot *d)
             free(cur);
             return true;
         }
+        prev = cur;
         cur = cur->next;
     }
     return false;

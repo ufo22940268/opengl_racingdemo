@@ -33,10 +33,11 @@ dot* createDotFromEdge(int i)
 
 void initDots()
 {
-    /*while (dotStackSize() <= 5) {*/
-        /*dot* d = createDotFromEdge(dotStackSize());*/
-        /*pushDot(d);*/
-    /*}*/
+    int i;
+    for (i = 0; i < 5; i++) {
+        dot* d = createDotFromEdge(i);
+        insertDot(d);
+    }
 }
 
 void removeDot(dot* d) 
@@ -46,17 +47,16 @@ void removeDot(dot* d)
 
 void updatePosition()
 {
-/*    dot* d;*/
-    /*while ((d = popDot()) != NULL) {*/
-        /*[>dotToString(d);<]*/
-        /*d->x = d->x + d->vx;*/
-        /*d->y = d->y + d->vy;*/
-        /*if (abs(d->x) > 100 || abs(d->y) > 100) {*/
-            /*removeDot(d);*/
-        /*} else {*/
-            /*pushDot(d);*/
-        /*}*/
-    /*}*/
+    linked_node *cur = getHeaderNode();
+    while (cur) {
+        dot *d = cur->dot;
+        d->x = d->x + d->vx;
+        d->y = d->y + d->vy;
+        if (abs(d->x) > 100 || abs(d->y) > 100) {
+            deleteDot(d);
+        }
+        cur = cur->next;
+    }
 }
 
 void drawDot(dot *d)

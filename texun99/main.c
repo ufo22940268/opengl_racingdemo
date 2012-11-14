@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "util.h"
 
 void init(void) 

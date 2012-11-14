@@ -66,6 +66,10 @@ void testLinkedDots()
     assert(deleteDot(dot3));
     int xs2[] = {4, 2, 1};
     assert(equalsX(xs2));
+
+    assert(deleteDot(dot4));
+    int xs3[] = {2, 1};
+    assert(equalsX(xs3));
 }
 
 void testC()
