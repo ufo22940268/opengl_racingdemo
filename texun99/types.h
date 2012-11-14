@@ -25,3 +25,8 @@ typedef struct {
     int vy;
 } dot;
 
+struct linked_node_s {
+    dot *dot;
+    struct linked_node_s *next;
+}; 
+typedef struct linked_node_s linked_node;

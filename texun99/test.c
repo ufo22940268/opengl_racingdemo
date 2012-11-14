@@ -29,23 +29,58 @@ void testChooseEdge()
     assert(y <= 100 && y >= 0); 
 }
 
-void testStack() 
-{
-    dot d1 = {.x = 1, .y = 1};
-    dot d2 = {.x = 2, .y = 2};
-    pushDot(&d1);
-    pushDot(&d2);
-    assert(popDot()->x == 2);
-    assert(popDot()->x == 1);
+bool equalsX(int* xs) {
+    linked_node *node = getHeaderNode();
+    assert(node != NULL);
+    while (node) {
+        if (node->dot->x != *xs) {
+            return false;
+        }
+        
+        xs ++;
+        node = node->next;
+    }
+    return true;
+}
 
-    assert(popDot() == NULL);
+void testLinkedDots()
+{
+    //Test insert.
+    dot *dot1 = (dot*)malloc(sizeof(dot));
+    dot *dot2 = (dot*)malloc(sizeof(dot));
+    dot *dot3 = (dot*)malloc(sizeof(dot));
+    dot *dot4 = (dot*)malloc(sizeof(dot));
+    dot1->x = 1;
+    dot2->x = 2;
+    dot3->x = 3;
+    dot4->x = 4;
+    insertDot(dot1);
+    insertDot(dot2);
+    insertDot(dot3);
+    insertDot(dot4);
+
+    int xs[] = {4, 3, 2, 1};
+    assert(equalsX(xs));
+
+    //Test delete.
+    assert(deleteDot(dot3));
+    int xs2[] = {4, 2, 1};
+    assert(equalsX(xs2));
+}
+
+void testC()
+{
+    int a = 1;
+    int* i = &a;
+    assert(i == i);
 }
 
 
 int main() 
 {
     testChooseEdge();
-    testStack();
+    testLinkedDots();
+    testC();
     printf("Test passed.\n");
     getchar();
 }

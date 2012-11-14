@@ -5,6 +5,7 @@
 #endif
 
 #include "types.h"
+#include <stdbool.h>
 
 float toRadians(int degree);
 void drawCircle(float r);
@@ -17,7 +18,8 @@ void chooseEdge(int i, int* x, int* y);
 
 int timeRand();
 
-dot* popDot();
-void pushDot(dot *d);
-int dotStackSize();
 void dotToString(dot* d);
+
+linked_node* getHeaderNode();
+void insertDot(dot *dot);
+bool deleteDot(dot *dot);

@@ -32,6 +32,9 @@ void reshape (int w, int h)
 void keyboard(unsigned char key, int x, int y)
 {
    switch (key) {
+       case 27:
+           exit(0);
+           break;
        case KEY_UP:
            movePlaneInDirection(KEY_UP);
            glutPostRedisplay();
@@ -47,9 +50,6 @@ void keyboard(unsigned char key, int x, int y)
        case KEY_RIGHT:
            movePlaneInDirection(KEY_RIGHT);
            glutPostRedisplay();
-           break;
-       case 27:
-           exit(0);
            break;
    }
 }
@@ -69,10 +69,10 @@ int main(int argc, char** argv)
    glutInitWindowPosition (100, 100);
    glutCreateWindow (argv[0]);
    init ();
+
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
-
    initDots();
    glutTimerFunc(REFRESH_INTERVAL, timer, 0);
    glutMainLoop();

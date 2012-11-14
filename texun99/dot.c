@@ -19,9 +19,9 @@ dot* createDotFromEdge(int i)
     /*int y = i*5%100;*/
 
     //Choose vector.
-    int k = 0 - x < 0 ? -1 : 1;
+    int k = (0 - x < 0 ? -1 : 1);
     int vx = timeRand(i)%5*k;
-    k = 0 - y < 0 ? -1 : 1;
+    k = (0 - y < 0 ? -1 : 1);
     int vy = timeRand(i)%5*k;
 
     d->x = x;
@@ -33,10 +33,10 @@ dot* createDotFromEdge(int i)
 
 void initDots()
 {
-    while (dotStackSize() <= 5) {
-        dot* d = createDotFromEdge(dotStackSize());
-        pushDot(d);
-    }
+    /*while (dotStackSize() <= 5) {*/
+        /*dot* d = createDotFromEdge(dotStackSize());*/
+        /*pushDot(d);*/
+    /*}*/
 }
 
 void removeDot(dot* d) 
@@ -46,19 +46,17 @@ void removeDot(dot* d)
 
 void updatePosition()
 {
-    dot* d;
-    d = popDot();
-    while (d != NULL) {
-        dotToString(d);
-        d->x = d->x + d->vx;
-        d->y = d->y + d->vy;
-        if (abs(d->x) > 100 || abs(d->y) > 100) {
-            removeDot(d);
-        } else {
-            pushDot(d);
-        }
-        d = popDot();
-    }
+/*    dot* d;*/
+    /*while ((d = popDot()) != NULL) {*/
+        /*[>dotToString(d);<]*/
+        /*d->x = d->x + d->vx;*/
+        /*d->y = d->y + d->vy;*/
+        /*if (abs(d->x) > 100 || abs(d->y) > 100) {*/
+            /*removeDot(d);*/
+        /*} else {*/
+            /*pushDot(d);*/
+        /*}*/
+    /*}*/
 }
 
 void drawDot(dot *d)
