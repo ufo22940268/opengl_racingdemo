@@ -27,15 +27,11 @@ dot* createDotFromEdge(int i)
     chooseEdge(i, &x, &y);
 
     //Choose vector.
-    int k = (0 - x < 0 ? -1 : 1);
-    int vx = timeRandf(i)*5*k;
-    k = (0 - y < 0 ? -1 : 1);
-    int vy = timeRandf(i*SHUFFLE)*5*k;
+    float angle = timeRand(i);
 
     d->x = x;
     d->y = y;
-    d->vx = vx;
-    d->vy = vy;
+    d->angle = angle;
     return d;
 }
 
@@ -44,8 +40,8 @@ void updatePosition()
     linked_node *cur = getHeaderNode();
     while (cur) {
         dot *d = cur->dot;
-        d->x = d->x + d->vx;
-        d->y = d->y + d->vy;
+        d->x += FLY_SPEED*sin(d->angle);
+        d->y += FLY_SPEED*cos(d->angle);
         if (abs(d->x) > 100 || abs(d->y) > 100) {
             deleteDot(d);
         }
@@ -96,6 +92,6 @@ void dotToString(dot* d)
     if (d == NULL) {
         printf("null\n");
     } else {
-        printf("x: %d, y: %d, vx %d, vy %d\n", d->x, d->y, d->vx, d->vy);
+        printf("x: %d, y: %d, angle %f\n", d->x, d->y, d->angle);
     }
 }

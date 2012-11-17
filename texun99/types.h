@@ -12,17 +12,16 @@
 #define KEY_LEFT 'a'
 #define KEY_RIGHT 'd'
 
+#define FLY_SPEED 5
+
 typedef struct {
     int x;
     int y;
     int color;
 
-    /*
-     * vx, vy refers to the vector of the dot. every time updates
-     * dots just need to add the vx and vy to x and y
-     */
-    int vx;
-    int vy;
+    //The angle determined the vector of dot. So it must
+    //assumed that the way dot flys will point to the (0, 0).
+    float angle;
 } dot;
 
 struct linked_node_s {
