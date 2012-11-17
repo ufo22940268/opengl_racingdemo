@@ -5,8 +5,18 @@
 
 const int PROFILE = 1;
 
-dot dots[MAX_DOTS_COUNT];
-int dotsCount = 0;
+void chooseEdge(int s, int *x, int *y)
+{
+    int i;
+
+    int switcher[4][2] = {{1, 0}, {0, 1}, {1, 0}, {0, 1}};
+    int base[4][2] = {{-100, -100}, {100, -100}, {-100, 100}, {-100, -100}};
+
+    //Segment denote every edge of rectangle.
+    int segmentIndex = s/4%4;
+    *x = base[segmentIndex][0] + switcher[segmentIndex][0]*200*timeRandf(s);
+    *y = base[segmentIndex][1] + switcher[segmentIndex][1]*200*timeRandf(s + 1);
+}
 
 dot* createDotFromEdge(int i)
 {
@@ -15,34 +25,18 @@ dot* createDotFromEdge(int i)
     
     //Choose position.
     chooseEdge(i, &x, &y);
-    /*int x = 100;*/
-    /*int y = i*5%100;*/
 
     //Choose vector.
     int k = (0 - x < 0 ? -1 : 1);
-    int vx = timeRand(i)%5*k;
+    int vx = timeRandf(i)*5*k;
     k = (0 - y < 0 ? -1 : 1);
-    int vy = timeRand(i)%5*k;
+    int vy = timeRandf(i*SHUFFLE)*5*k;
 
     d->x = x;
     d->y = y;
     d->vx = vx;
     d->vy = vy;
     return d;
-}
-
-void initDots()
-{
-    int i;
-    for (i = 0; i < 5; i++) {
-        dot* d = createDotFromEdge(i);
-        insertDot(d);
-    }
-}
-
-void removeDot(dot* d) 
-{
-    free(d);
 }
 
 void updatePosition()
@@ -61,13 +55,6 @@ void updatePosition()
 
 void drawDot(dot *d)
 {
-    //If the vector of dot equal to zero, then it means the dot
-    //is static and it doesn't need to be drawn any more.
-    if (d->vx == 0 && d->vy == 0) 
-    {
-        return;
-    }
-
     glColor3f(1, 1, 1);
     glPointSize(3);
     glBegin(GL_POINTS);
@@ -77,24 +64,30 @@ void drawDot(dot *d)
 
 void drawDots()
 {
-    int i;
-    for (i = 0; i < dotsCount; i++) {
-        drawDot(&dots[i]);
+    linked_node *cur = getHeaderNode();
+    while (cur) {
+        dot *d = cur->dot;
+        drawDot(d);
+        cur = cur->next;
     }
 }
 
-void test() 
+void addNewDots(int cnt) 
 {
     int i;
-    for (i = 0; i < dotsCount; i ++) {
-        dot *d = &dots[i];
-        printf("dot %d: x %d\ty %d\n", i, d->x, d->y);
+    for (i = 0; i < cnt; i ++) {
+        dot* d = createDotFromEdge(i);
+        insertDot(d);
     }
-    printf("\n\n\n");
 }
 
 void updateDots() 
 {
+    int cnt = nodesSize();
+    if (cnt < 5) {
+        addNewDots(5 - cnt);
+    }
+
     updatePosition();
 }
 

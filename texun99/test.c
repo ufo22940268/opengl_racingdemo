@@ -10,23 +10,23 @@ void testChooseEdge()
 
     int i = 1;
     chooseEdge(i, &x, &y);
-    assert(y == 0);
-    assert(x <= 100 && x >= 0);
+    assert(y == -100);
+    assert(x <= 100 && x >= -100);
 
     i = 4;
     chooseEdge(i, &x, &y);
     assert(x == 100);
-    assert(y <= 100 && y >= 0); 
+    assert(y <= 100 && y >= -100); 
 
     i = 8;
     chooseEdge(i, &x, &y);
     assert(y == 100);
-    assert(x <= 100 && x >= 0); 
+    assert(x <= 100 && x >= -100); 
 
     i = 12;
     chooseEdge(i, &x, &y);
-    assert(x == 0);
-    assert(y <= 100 && y >= 0); 
+    assert(x == -100);
+    assert(y <= 100 && y >= -100); 
 }
 
 bool equalsX(int* xs) {
@@ -58,25 +58,43 @@ void testLinkedDots()
     insertDot(dot2);
     insertDot(dot3);
     insertDot(dot4);
+    assert(nodesSize() == 4);
 
     int xs[] = {4, 3, 2, 1};
     assert(equalsX(xs));
 
     //Test delete.
     assert(deleteDot(dot3));
+    assert(nodesSize() == 3);
     int xs2[] = {4, 2, 1};
     assert(equalsX(xs2));
 
     assert(deleteDot(dot4));
     int xs3[] = {2, 1};
     assert(equalsX(xs3));
+
+    //Test dot size.
+    freeAllNodes();
+    assert(nodesSize() == 0);
+}
+
+void testRand()
+{
+    float fr1 = timeRandf(1);
+    float fr2 = timeRandf(2);
+    assert(fr1 != fr2);
+    assert(fr1 <= 1 && fr1 >= 0);
+    assert(fr2 <= 1 && fr2 >= 0);
 }
 
 void testC()
 {
-    int a = 1;
-    int* i = &a;
-    assert(i == i);
+    int color = 0x66ccff;
+    color = (color&0xff0000) >> 16;
+    assert(color == 0x66);
+
+    /*printf("%d\n", timeRand(1));*/
+    /*printf("%d\n", timeRand(5));*/
 }
 
 
@@ -84,7 +102,12 @@ int main()
 {
     testChooseEdge();
     testLinkedDots();
+    testRand();
+
+    //One shot test.
     testC();
+
     printf("Test passed.\n");
+
     getchar();
 }

@@ -8,11 +8,12 @@ void drawPlane()
 {
     glPushMatrix();
     glTranslatef(planeX, planeY, 0);
+    setColor(0x66ccff);
     drawCircle(PLANE_SIZE);
     glPopMatrix();
 }
 
-void movePlane(float x, float y)
+void movePlane(int x, int y)
 {
     planeX += x;
     planeY += y;

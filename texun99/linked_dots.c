@@ -45,3 +45,36 @@ bool deleteDot(dot *d)
     }
     return false;
 }
+
+int nodesSize()
+{
+    if (header == NULL) {
+        return 0;
+    }
+
+    linked_node *cur = header;
+    int size = 0;
+    while (cur) {
+        size += 1;
+        cur = cur -> next;
+    }
+    return size;
+}
+
+void freeAllNodes()
+{
+    if (header == NULL) {
+        return;
+    }
+
+    linked_node *prev;
+    linked_node *cur = header;
+    while (cur) {
+        prev = cur;
+        cur = cur->next;
+        free(prev->dot);
+        free(prev);
+    }
+
+    header = NULL;
+}

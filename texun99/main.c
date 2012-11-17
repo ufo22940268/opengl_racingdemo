@@ -72,7 +72,6 @@ int main(int argc, char** argv)
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
-   initDots();
    glutTimerFunc(REFRESH_INTERVAL, timer, 0);
    glutMainLoop();
    return 0;

@@ -21,26 +21,20 @@ void drawCircle(float r)
 
 int timeRand(int i)
 {
-    int s = time(NULL)%60;
-    srand(s*i);
+    srand(time(NULL) * (i + 1));
     return rand();
 }
 
-int timeRandRange(int i, int range)
+float timeRandf(int s)
 {
-    return timeRand(i)%range;
+    int ri = timeRand(s);
+    return (float)(ri%100)/100;
 }
 
-void chooseEdge(int s, int* x, int* y)
+void setColor(int color) 
 {
-    int i;
-    int segment = 16/4;
-
-    int switcher[4][2] = {{1, 0}, {0, 1}, {1, 0}, {0, 1}};
-    int base[4][2] = {{0, 0}, {100, 0}, {0, 100}, {0, 0}};
-
-    int segmentIndex = s/4;
-
-    *x = base[segmentIndex][0] + switcher[segmentIndex][0]*timeRandRange(s, 100);
-    *y = base[segmentIndex][1] + switcher[segmentIndex][1]*timeRandRange(s, 100);
+    float r = (float)((color&0xff0000)>>16)/255;
+    float g = (float)((color&0x00ff00)>>8)/255; 
+    float b = (float)((color&0x0000ff)>>0)/255;
+    glColor3f(r, g, b);
 }
