@@ -38,3 +38,8 @@ void setColor(int color)
     float b = (float)((color&0x0000ff)>>0)/255;
     glColor3f(r, g, b);
 }
+
+double distant(int xa, int ya, int xb, int yb) 
+{
+    return sqrt(pow(xa - xb, 2) + pow(ya - yb, 2));
+}

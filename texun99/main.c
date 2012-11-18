@@ -56,6 +56,13 @@ void keyboard(unsigned char key, int x, int y)
 void timer(int value)
 {
     updateDots();
+
+    //When collision happens, just stop animation.
+    //TODO Display a game report data. such as lasting time, reputation.
+    if (isCollision()) {
+        return;
+    }
+
     glutPostRedisplay();
     glutTimerFunc(REFRESH_INTERVAL, timer, 0);
 }

@@ -5,6 +5,9 @@
 
 const int PROFILE = 1;
 
+extern int planeX;
+extern int planeY;
+
 void chooseEdge(int s, int *x, int *y)
 {
     int i;
@@ -18,6 +21,11 @@ void chooseEdge(int s, int *x, int *y)
     *y = base[segmentIndex][1] + switcher[segmentIndex][1]*200*timeRandf(s + 1);
 }
 
+bool isRightAngle(int x, int y, float angle) 
+{
+    return pow(x, 2) + pow(y, 2) >= pow(x + cos(angle), 2) + pow(y + sin(angle), 2);
+}
+
 dot* createDotFromEdge(int i)
 {
     dot* d = (dot*)malloc(sizeof(dot));
@@ -28,6 +36,9 @@ dot* createDotFromEdge(int i)
 
     //Choose vector.
     float angle = timeRand(i);
+    if (!isRightAngle(x, y, angle)) {
+        angle += M_PI;
+    }
 
     d->x = x;
     d->y = y;
@@ -40,8 +51,8 @@ void updatePosition()
     linked_node *cur = getHeaderNode();
     while (cur) {
         dot *d = cur->dot;
-        d->x += FLY_SPEED*sin(d->angle);
-        d->y += FLY_SPEED*cos(d->angle);
+        d->x += FLY_SPEED*cos(d->angle);
+        d->y += FLY_SPEED*sin(d->angle);
         if (abs(d->x) > 100 || abs(d->y) > 100) {
             deleteDot(d);
         }
@@ -85,6 +96,20 @@ void updateDots()
     }
 
     updatePosition();
+}
+
+bool isCollision() 
+{
+    linked_node *cur = getHeaderNode();
+    while (cur) {
+        dot* d = cur->dot;
+        if (distant(d->x, d->y, planeX, planeY) < PLANE_SIZE) {
+            return true;
+        }
+        cur = cur->next;
+    }
+
+    return false;
 }
 
 void dotToString(dot* d)

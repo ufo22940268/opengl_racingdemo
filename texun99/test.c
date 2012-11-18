@@ -5,6 +5,9 @@
 #include <math.h>
 #include "util.h"
 
+extern int planeX;
+extern int planeY;
+
 void testChooseEdge()
 {
     int x, y;
@@ -28,9 +31,21 @@ void testChooseEdge()
     chooseEdge(i, &x, &y);
     assert(x == -100);
     assert(y <= 100 && y >= -100); 
+
+    //TODO This test hasn't passed. Still can't figure out why.
+    /*//Test angle.*/
+    /*for (i = 1; i < 10; i ++) {*/
+        /*dot* d = createDotFromEdge(i);*/
+
+        /*double dis1 = distant(d->x, d->y);*/
+        /*double dis2 = distant(d->x + cos(d->angle), d->y + sin(d->angle));*/
+        /*printf("%d\n", i);*/
+        /*assert(dis1 > dis2);*/
+    /*}*/
 }
 
-bool equalsX(int* xs) {
+bool equalsX(int* xs) 
+{
     linked_node *node = getHeaderNode();
     assert(node != NULL);
     while (node) {
@@ -88,6 +103,42 @@ void testRand()
     assert(fr2 <= 1 && fr2 >= 0);
 }
 
+void testMoving()
+{
+    //Set up.
+    dot* d1 = (dot*)malloc(sizeof(dot));
+    d1->x = 1;
+    d1->y = 1;
+    dot* d2 = (dot*)malloc(sizeof(dot));
+    d2->x = 2;
+    d2->y = 2;
+    
+    freeAllNodes();
+    insertDot(d1);
+    insertDot(d2);
+
+    planeX = 1;
+    planeY = 1;
+    assert(isCollision());
+
+    planeX = 2;
+    planeY = 2 + PLANE_SIZE;
+    assert(isCollision());
+
+    planeX = 2;
+    planeY = 2 + PLANE_SIZE + 1;
+    assert(!isCollision());
+}
+
+void testUtils() 
+{
+    double d1 = distant(1, 0, 0, 0);
+    assert(d1 == 1);
+    
+    d1 = distant(2, 0, 0, 0);
+    assert(d1 == 2);
+}
+
 void testC()
 {
     int color = 0x66ccff;
@@ -104,6 +155,8 @@ int main()
     testChooseEdge();
     testLinkedDots();
     testRand();
+    testMoving();
+    testUtils();
 
     //One shot test.
     testC();

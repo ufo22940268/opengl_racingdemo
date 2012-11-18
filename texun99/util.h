@@ -16,6 +16,7 @@ void drawCircle(float r);
 void drawPlane();
 void movePlane(int x, int y);
 void movePlaneInDirection(char key);
+bool isCollision();
 
 void setColor(int color);
 
@@ -24,6 +25,7 @@ void chooseEdge(int i, int *x, int *y);
 
 int timeRand(int i);
 float timeRandf(int s); 
+double distant(int xa, int ya, int xb, int yb);
 
 void dotToString(dot* d);
 
@@ -32,3 +34,5 @@ void insertDot(dot *dot);
 bool deleteDot(dot *dot);
 int nodesSize();
 void freeAllNodes();
+
+dot* createDotFromEdge(int i);
