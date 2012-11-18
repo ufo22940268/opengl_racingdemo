@@ -103,9 +103,10 @@ bool isCollision()
     linked_node *cur = getHeaderNode();
     while (cur) {
         dot* d = cur->dot;
-        if (distant(d->x, d->y, planeX, planeY) < PLANE_SIZE) {
-            return true;
-        }
+        printf("x %d, y %d, planeX %d, planeY %d\n", d->x, d->y, planeX, planeY);
+        /*if (distant(d->x, d->y, planeX, planeY) <= PLANE_SIZE) {*/
+            /*return true;*/
+        /*}*/
         cur = cur->next;
     }
 
