@@ -3,6 +3,8 @@
 #include <time.h>
 #include "util.h"
 
+int global_seed = 0;
+
 float toRadians(int degree) 
 {
     return degree;
@@ -19,15 +21,16 @@ void drawCircle(float r)
     glEnd();
 }
 
-int timeRand(int i)
+int timeRand()
 {
-    srand(time(NULL) * (i + 1));
+    srand(time(NULL) * global_seed);
+    global_seed = (global_seed + 1)%100000;
     return rand();
 }
 
-float timeRandf(int s)
+float timeRandf()
 {
-    int ri = timeRand(s);
+    int ri = timeRand();
     return (float)(ri%100)/100;
 }
 

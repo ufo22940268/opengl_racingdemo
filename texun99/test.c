@@ -1,44 +1,44 @@
-#include <assert.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <unistd.h>
 #include <math.h>
+#include <assert.h>
 #include "util.h"
 
-extern int planeX;
-extern int planeY;
+extern float planeX;
+extern float planeY;
 
 void testChooseEdge()
 {
-    int x, y;
+    /*int x, y;*/
 
-    int i = 1;
-    chooseEdge(i, &x, &y);
-    assert(y == -100);
-    assert(x <= 100 && x >= -100);
+    /*int i = 1;*/
+    /*chooseEdge(&x, &y);*/
+    /*assert(y == -100);*/
+    /*assert(x <= 100 && x >= -100);*/
 
-    i = 4;
-    chooseEdge(i, &x, &y);
-    assert(x == 100);
-    assert(y <= 100 && y >= -100); 
+    /*i = 4;*/
+    /*chooseEdge(&x, &y);*/
+    /*assert(x == 100);*/
+    /*assert(y <= 100 && y >= -100); */
 
-    i = 8;
-    chooseEdge(i, &x, &y);
-    assert(y == 100);
-    assert(x <= 100 && x >= -100); 
+    /*i = 8;*/
+    /*chooseEdge(&x, &y);*/
+    /*assert(y == 100);*/
+    /*assert(x <= 100 && x >= -100); */
 
-    i = 12;
-    chooseEdge(i, &x, &y);
-    assert(x == -100);
-    assert(y <= 100 && y >= -100); 
+    /*i = 12;*/
+    /*chooseEdge(&x, &y);*/
+    /*assert(x == -100);*/
+    /*assert(y <= 100 && y >= -100); */
 
     //TODO This test hasn't passed. Still can't figure out why.
     /*//Test angle.*/
     /*for (i = 1; i < 10; i ++) {*/
         /*dot* d = createDotFromEdge(i);*/
 
-        /*double dis1 = distant(d->x, d->y);*/
-        /*double dis2 = distant(d->x + cos(d->angle), d->y + sin(d->angle));*/
+        /*double dis1 = distant(d->x, d->y, 0, 0);*/
+        /*double dis2 = distant(d->x + cos(d->angle), d->y + sin(d->angle), 0, 0);*/
         /*printf("%d\n", i);*/
         /*assert(dis1 > dis2);*/
     /*}*/
@@ -96,8 +96,8 @@ void testLinkedDots()
 
 void testRand()
 {
-    float fr1 = timeRandf(1);
-    float fr2 = timeRandf(2);
+    float fr1 = timeRandf();
+    float fr2 = timeRandf();
     assert(fr1 != fr2);
     assert(fr1 <= 1 && fr1 >= 0);
     assert(fr2 <= 1 && fr2 >= 0);
@@ -105,6 +105,8 @@ void testRand()
 
 void testMoving()
 {
+    freeAllNodes();
+    
     //Set up.
     dot* d1 = (dot*)malloc(sizeof(dot));
     d1->x = 1;
@@ -145,8 +147,8 @@ void testC()
     color = (color&0xff0000) >> 16;
     assert(color == 0x66);
 
-    /*printf("%d\n", timeRand(1));*/
-    /*printf("%d\n", timeRand(5));*/
+    /*printf("%d\n", timeRand());*/
+    /*printf("%d\n", timeRand());*/
 }
 
 
@@ -164,4 +166,5 @@ int main()
     printf("Test passed.\n");
 
     getchar();
+    return 0;
 }

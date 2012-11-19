@@ -5,20 +5,20 @@
 
 const int PROFILE = 1;
 
-extern int planeX;
-extern int planeY;
+extern float planeX;
+extern float planeY;
 
-void chooseEdge(int s, int *x, int *y)
+void chooseEdge(int *x, int *y)
 {
-    int i;
+    extern int global_seed;
 
     int switcher[4][2] = {{1, 0}, {0, 1}, {1, 0}, {0, 1}};
     int base[4][2] = {{-100, -100}, {100, -100}, {-100, 100}, {-100, -100}};
 
     //Segment denote every edge of rectangle.
-    int segmentIndex = s/4%4;
-    *x = base[segmentIndex][0] + switcher[segmentIndex][0]*200*timeRandf(s);
-    *y = base[segmentIndex][1] + switcher[segmentIndex][1]*200*timeRandf(s + 1);
+    int segmentIndex = global_seed/4%4;
+    *x = base[segmentIndex][0] + switcher[segmentIndex][0]*200*timeRandf();
+    *y = base[segmentIndex][1] + switcher[segmentIndex][1]*200*timeRandf();
 }
 
 bool isRightAngle(int x, int y, float angle) 
@@ -26,16 +26,16 @@ bool isRightAngle(int x, int y, float angle)
     return pow(x, 2) + pow(y, 2) >= pow(x + cos(angle), 2) + pow(y + sin(angle), 2);
 }
 
-dot* createDotFromEdge(int i)
+dot* createDotFromEdge()
 {
     dot* d = (dot*)malloc(sizeof(dot));
     int x, y;
     
     //Choose position.
-    chooseEdge(i, &x, &y);
+    chooseEdge(&x, &y);
 
     //Choose vector.
-    float angle = timeRand(i);
+    float angle = timeRand();
     if (!isRightAngle(x, y, angle)) {
         angle += M_PI;
     }
@@ -91,8 +91,8 @@ void addNewDots(int cnt)
 void updateDots() 
 {
     int cnt = nodesSize();
-    if (cnt < 5) {
-        addNewDots(5 - cnt);
+    if (cnt < 30) {
+        addNewDots(30 - cnt);
     }
 
     updatePosition();
@@ -103,10 +103,10 @@ bool isCollision()
     linked_node *cur = getHeaderNode();
     while (cur) {
         dot* d = cur->dot;
-        printf("x %d, y %d, planeX %d, planeY %d\n", d->x, d->y, planeX, planeY);
-        /*if (distant(d->x, d->y, planeX, planeY) <= PLANE_SIZE) {*/
-            /*return true;*/
-        /*}*/
+        printf("x %d, y %d, planeX %f, planeY %f\n", d->x, d->y, planeX, planeY);
+        if (distant(d->x, d->y, planeX, planeY) <= PLANE_SIZE) {
+            return true;
+        }
         cur = cur->next;
     }
 
