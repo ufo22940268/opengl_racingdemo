@@ -1,5 +1,8 @@
 #include "util.h"
 
+int updateCount;
+int gameStatus = STATUS_NORMAL;
+
 void init(void) 
 {
    glClearColor (0.0, 0.0, 0.0, 0.0);
@@ -53,18 +56,25 @@ void keyboard(unsigned char key, int x, int y)
    }
 }
 
-void timer(int value)
+void view_timer(int value)
 {
     updateDots();
 
     //When collision happens, just stop animation.
     //TODO Display a game report data. such as lasting time, reputation.
     if (isCollision()) {
+        gameStatus = STATUS_FINISHED;
         return;
     }
 
     glutPostRedisplay();
-    glutTimerFunc(REFRESH_INTERVAL, timer, 0);
+    glutTimerFunc(REFRESH_INTERVAL, view_timer, 0);
+}
+
+void data_timer(int value)
+{
+    updateTimeData();
+    glutTimerFunc(UPDATE_DATA_INTERVAL, data_timer, 0);
 }
 
 int main(int argc, char** argv)
@@ -79,7 +89,8 @@ int main(int argc, char** argv)
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
-   glutTimerFunc(REFRESH_INTERVAL, timer, 0);
+   glutTimerFunc(REFRESH_INTERVAL, view_timer, 0);
+   glutTimerFunc(UPDATE_DATA_INTERVAL, data_timer, 0);
    glutMainLoop();
    return 0;
 }

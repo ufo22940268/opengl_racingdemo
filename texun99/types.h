@@ -5,7 +5,18 @@
 #define MAX_DOTS_COUNT 200
 #define TEST_DOTS_COUNT 5
 
+
+#define SPEED_UNIT 2
+#define DOT_UNIT 2
+
+#define UPDATE_DATA_INTERVAL 3000
 #define REFRESH_INTERVAL 50
+
+/**
+ * Game status.
+ */
+#define STATUS_NORMAL 0
+#define STATUS_FINISHED 1
 
 #define KEY_UP 'w'
 #define KEY_DOWN 's'

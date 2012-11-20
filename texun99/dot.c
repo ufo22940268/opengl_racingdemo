@@ -90,6 +90,7 @@ void addNewDots(int cnt)
 
 void updateDots() 
 {
+    /*int neededCnt = */
     int cnt = nodesSize();
     if (cnt < 30) {
         addNewDots(30 - cnt);
@@ -103,7 +104,7 @@ bool isCollision()
     linked_node *cur = getHeaderNode();
     while (cur) {
         dot* d = cur->dot;
-        printf("x %d, y %d, planeX %f, planeY %f\n", d->x, d->y, planeX, planeY);
+        /*printf("x %d, y %d, planeX %f, planeY %f\n", d->x, d->y, planeX, planeY);*/
         if (distant(d->x, d->y, planeX, planeY) <= PLANE_SIZE) {
             return true;
         }

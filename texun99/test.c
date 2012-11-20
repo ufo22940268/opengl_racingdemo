@@ -5,8 +5,13 @@
 #include <assert.h>
 #include "util.h"
 
+int gameStatus = STATUS_NORMAL;
+
 extern float planeX;
 extern float planeY;
+
+extern int speed;
+extern int dotCount;
 
 void testChooseEdge()
 {
@@ -32,16 +37,14 @@ void testChooseEdge()
     /*assert(x == -100);*/
     /*assert(y <= 100 && y >= -100); */
 
-    //TODO This test hasn't passed. Still can't figure out why.
-    /*//Test angle.*/
-    /*for (i = 1; i < 10; i ++) {*/
-        /*dot* d = createDotFromEdge(i);*/
+    int i;
+    for (i = 1; i < 10; i ++) {
+        dot* d = createDotFromEdge();
 
-        /*double dis1 = distant(d->x, d->y, 0, 0);*/
-        /*double dis2 = distant(d->x + cos(d->angle), d->y + sin(d->angle), 0, 0);*/
-        /*printf("%d\n", i);*/
-        /*assert(dis1 > dis2);*/
-    /*}*/
+        double dis1 = distant(d->x, d->y, 0, 0);
+        double dis2 = distant(d->x + cos(d->angle), d->y + sin(d->angle), 0, 0);
+        assert(dis1 >= dis2);
+    }
 }
 
 bool equalsX(int* xs) 
@@ -141,14 +144,27 @@ void testUtils()
     assert(d1 == 2);
 }
 
+void testUpdate()
+{
+    resetTimeData();
+
+    updateTimeData();
+    speed = SPEED_UNIT;
+    dotCount = DOT_UNIT;
+    updateTimeData();
+    speed = SPEED_UNIT*2;
+    dotCount = DOT_UNIT*2;
+
+    resetTimeData();
+    speed = 0;
+    dotCount = 0;
+}
+
 void testC()
 {
     int color = 0x66ccff;
     color = (color&0xff0000) >> 16;
     assert(color == 0x66);
-
-    /*printf("%d\n", timeRand());*/
-    /*printf("%d\n", timeRand());*/
 }
 
 
@@ -159,6 +175,7 @@ int main()
     testRand();
     testMoving();
     testUtils();
+    testUpdate();
 
     //One shot test.
     testC();

@@ -37,3 +37,8 @@ int nodesSize();
 void freeAllNodes();
 
 dot* createDotFromEdge();
+
+
+//Timer function test.
+void resetTimeData();
+void updateTimeData();

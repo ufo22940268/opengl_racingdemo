@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include "util.h"
 
+extern int gameStatus;
+
 float planeX = 0;
 float planeY = 0;
 
@@ -21,6 +23,10 @@ void movePlane(int x, int y)
 
 void movePlaneInDirection(char key)
 {
+    if (gameStatus == STATUS_FINISHED) {
+        return;
+    }
+
     switch (key) {
 	case KEY_UP:
 	    movePlane(0, MOVE_SIZE);
