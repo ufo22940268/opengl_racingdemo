@@ -37,23 +37,19 @@ void keyboard(unsigned char key, int x, int y)
        case 27:
            exit(0);
            break;
-       case KEY_UP:
-           movePlaneInDirection(KEY_UP);
-           glutPostRedisplay();
-           break;
-       case KEY_DOWN:
-           movePlaneInDirection(KEY_DOWN);
-           glutPostRedisplay();
-           break;
-       case KEY_LEFT:
-           movePlaneInDirection(KEY_LEFT);
-           glutPostRedisplay();
-           break;
-       case KEY_RIGHT:
-           movePlaneInDirection(KEY_RIGHT);
-           glutPostRedisplay();
-           break;
    }
+
+   if (isControllerKey(key)) {
+       controlPlane(key);
+   }
+}
+
+//TODO
+void keyboardUp(unsigned char key, int x, int y)
+{
+   /*if (isControllerKey(key)) {*/
+       /*controlPlaneRelease(key);*/
+   /*}*/
 }
 
 void view_timer(int value)
@@ -89,6 +85,9 @@ int main(int argc, char** argv)
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
    glutKeyboardFunc(keyboard);
+   glutKeyboardUpFunc(keyboardUp);
+   glutIgnoreKeyRepeat(1);
+
    glutTimerFunc(REFRESH_INTERVAL, view_timer, 0);
    glutTimerFunc(UPDATE_DATA_INTERVAL, data_timer, 0);
    glutMainLoop();

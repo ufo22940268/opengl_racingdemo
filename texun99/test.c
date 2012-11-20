@@ -13,6 +13,8 @@ extern float planeY;
 extern int speed;
 extern int dotCount;
 
+extern int keyStatus;
+
 void testChooseEdge()
 {
     /*int x, y;*/
@@ -160,6 +162,28 @@ void testUpdate()
     dotCount = 0;
 }
 
+void testKeyboard()
+{
+    pressKey(KEY_UP);
+    assert(keyStatus == FLAG_UP);
+    assert(getPlaneDirection() == DIRECTION_UP);
+
+    resetKeyStatus();
+    pressKey(KEY_UP);
+    pressKey(KEY_LEFT);
+    assert(getPlaneDirection() == DIRECTION_LEFT_UP);
+    pressKey(KEY_RIGHT);
+    assert(getPlaneDirection() == DIRECTION_LEFT_UP);
+    pressKey(KEY_DOWN);
+    assert(getPlaneDirection() == DIRECTION_VOID);
+    releaseKey(KEY_UP);
+    assert(getPlaneDirection() == DIRECTION_LEFT_DOWN);
+    
+    resetKeyStatus();
+    assert(keyStatus == FLAG_VOID);
+    assert(getPlaneDirection() == DIRECTION_VOID);
+}
+
 void testC()
 {
     int color = 0x66ccff;
@@ -176,6 +200,7 @@ int main()
     testMoving();
     testUtils();
     testUpdate();
+    testKeyboard();
 
     //One shot test.
     testC();

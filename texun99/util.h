@@ -42,3 +42,12 @@ dot* createDotFromEdge();
 //Timer function test.
 void resetTimeData();
 void updateTimeData();
+
+bool isControllerKey(char key);
+void controlPlane(char key);
+
+//TODO implement them.
+void resetKeyStatus();
+int getPlaneDirection();
+void pressKey(char key);
+void releaseKey(char key);

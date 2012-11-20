@@ -8,6 +8,9 @@ const int PROFILE = 1;
 extern float planeX;
 extern float planeY;
 
+extern int speed;
+extern int dotCount;
+
 void chooseEdge(int *x, int *y)
 {
     extern int global_seed;
@@ -51,8 +54,8 @@ void updatePosition()
     linked_node *cur = getHeaderNode();
     while (cur) {
         dot *d = cur->dot;
-        d->x += FLY_SPEED*cos(d->angle);
-        d->y += FLY_SPEED*sin(d->angle);
+        d->x += speed*cos(d->angle);
+        d->y += speed*sin(d->angle);
         if (abs(d->x) > 100 || abs(d->y) > 100) {
             deleteDot(d);
         }
@@ -90,10 +93,9 @@ void addNewDots(int cnt)
 
 void updateDots() 
 {
-    /*int neededCnt = */
     int cnt = nodesSize();
-    if (cnt < 30) {
-        addNewDots(30 - cnt);
+    if (cnt < dotCount) {
+        addNewDots(dotCount - cnt);
     }
 
     updatePosition();
