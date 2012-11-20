@@ -1,3 +1,4 @@
+#include <string.h>
 #include "util.h"
 
 int updateCount;
@@ -9,6 +10,16 @@ void init(void)
    glShadeModel (GL_FLAT);
 }
 
+void drawRecord()
+{
+    glRasterPos2f(-10, -10);
+    char status[] = {"hongbosb"};
+    int i;
+    for (i = 0; i < strlen(status); i ++) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, status[i]);
+    }
+}
+
 void display(void)
 {
    glClear (GL_COLOR_BUFFER_BIT);
@@ -17,7 +28,11 @@ void display(void)
    drawPlane();
    drawDots();
 
-   glFlush ();
+   if (gameStatus == STATUS_FINISHED) {
+       drawRecord();
+   }
+
+   glFlush();
 }
 
 void reshape (int w, int h)
@@ -58,13 +73,13 @@ void keyboardUp(unsigned char key, int x, int y)
 
 void viewTimer(int value)
 {
-    updateDots();
 
     //When collision happens, just stop animation.
     //TODO Display a game report data. such as lasting time, reputation.
     if (isCollision()) {
         gameStatus = STATUS_FINISHED;
-        return;
+    } else {
+        updateDots();
     }
 
     glutPostRedisplay();
@@ -73,13 +88,17 @@ void viewTimer(int value)
 
 void dataTimer(int value)
 {
-    updateTimeData();
+    if (gameStatus == STATUS_NORMAL) {
+        updateTimeData();
+    }
     glutTimerFunc(UPDATE_DATA_INTERVAL, dataTimer, 0);
 }
 
 void moveTimer(int value) 
 {
-    movePlaneInDirection(getPlaneDirection());
+    if (gameStatus == STATUS_NORMAL) {
+        movePlaneInDirection(getPlaneDirection());
+    }
     glutTimerFunc(MOVE_INTERVAL, moveTimer, 0);
 }
 
@@ -101,6 +120,7 @@ int main(int argc, char** argv)
    glutTimerFunc(REFRESH_INTERVAL, viewTimer, 0);
    glutTimerFunc(UPDATE_DATA_INTERVAL, dataTimer, 0);
    glutTimerFunc(MOVE_INTERVAL, moveTimer, 0);
+
    glutMainLoop();
    return 0;
 }
