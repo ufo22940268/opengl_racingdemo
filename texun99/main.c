@@ -44,15 +44,19 @@ void keyboard(unsigned char key, int x, int y)
    }
 }
 
-//TODO
-void keyboardUp(unsigned char key, int x, int y)
+//TODO Reset key status.
+void reset() 
 {
-   /*if (isControllerKey(key)) {*/
-       /*controlPlaneRelease(key);*/
-   /*}*/
 }
 
-void view_timer(int value)
+void keyboardUp(unsigned char key, int x, int y)
+{
+   if (isControllerKey(key)) {
+       controlPlaneRelease(key);
+   }
+}
+
+void viewTimer(int value)
 {
     updateDots();
 
@@ -64,13 +68,19 @@ void view_timer(int value)
     }
 
     glutPostRedisplay();
-    glutTimerFunc(REFRESH_INTERVAL, view_timer, 0);
+    glutTimerFunc(REFRESH_INTERVAL, viewTimer, 0);
 }
 
-void data_timer(int value)
+void dataTimer(int value)
 {
     updateTimeData();
-    glutTimerFunc(UPDATE_DATA_INTERVAL, data_timer, 0);
+    glutTimerFunc(UPDATE_DATA_INTERVAL, dataTimer, 0);
+}
+
+void moveTimer(int value) 
+{
+    movePlaneInDirection(getPlaneDirection());
+    glutTimerFunc(MOVE_INTERVAL, moveTimer, 0);
 }
 
 int main(int argc, char** argv)
@@ -88,8 +98,9 @@ int main(int argc, char** argv)
    glutKeyboardUpFunc(keyboardUp);
    glutIgnoreKeyRepeat(1);
 
-   glutTimerFunc(REFRESH_INTERVAL, view_timer, 0);
-   glutTimerFunc(UPDATE_DATA_INTERVAL, data_timer, 0);
+   glutTimerFunc(REFRESH_INTERVAL, viewTimer, 0);
+   glutTimerFunc(UPDATE_DATA_INTERVAL, dataTimer, 0);
+   glutTimerFunc(MOVE_INTERVAL, moveTimer, 0);
    glutMainLoop();
    return 0;
 }

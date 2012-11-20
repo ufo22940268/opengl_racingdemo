@@ -15,7 +15,7 @@ float toRadians(int degree);
 void drawCircle(float r);
 void drawPlane();
 void movePlane(int x, int y);
-void movePlaneInDirection(char key);
+void movePlaneInDirection(int key);
 void drawDots();
 bool isCollision();
 
@@ -38,7 +38,6 @@ void freeAllNodes();
 
 dot* createDotFromEdge();
 
-
 //Timer function test.
 void resetTimeData();
 void updateTimeData();
@@ -51,3 +50,5 @@ void resetKeyStatus();
 int getPlaneDirection();
 void pressKey(char key);
 void releaseKey(char key);
+
+void controlPlaneRelease(char key);

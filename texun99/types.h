@@ -11,6 +11,7 @@
 
 #define   UPDATE_DATA_INTERVAL   3000
 #define   REFRESH_INTERVAL       50
+#define   MOVE_INTERVAL          50
 
 /**
  * Game status.

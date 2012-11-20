@@ -56,7 +56,7 @@ bool isControllerKey(char key)
 
 void controlPlane(char key) 
 {
-    movePlaneInDirection(key);
+    pressKey(key);
 }
 
 void pressKey(char key) 
@@ -98,4 +98,9 @@ int getPlaneDirection()
     }
 
     return DIRECTION_VOID;
+}
+
+void controlPlaneRelease(char key) 
+{
+    releaseKey(key);
 }

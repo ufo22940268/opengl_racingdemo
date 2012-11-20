@@ -21,24 +21,36 @@ void movePlane(int x, int y)
     planeY += y;
 }
 
-void movePlaneInDirection(char key)
+void movePlaneInDirection(int direction)
 {
     if (gameStatus == STATUS_FINISHED) {
         return;
     }
 
-    switch (key) {
-	case KEY_UP:
+    switch (direction) {
+	case DIRECTION_UP:
 	    movePlane(0, MOVE_SIZE);
 	    break;
-	case KEY_DOWN:
+	case DIRECTION_DOWN:
 	    movePlane(0, -MOVE_SIZE);
 	    break;
-	case KEY_LEFT:
+	case DIRECTION_LEFT:
 	    movePlane(-MOVE_SIZE, 0);
 	    break;
-	case KEY_RIGHT:
+	case DIRECTION_RIGHT:
 	    movePlane(MOVE_SIZE, 0);
+	    break;
+	case DIRECTION_LEFT_UP:
+	    movePlane(-MOVE_SIZE, MOVE_SIZE);
+	    break;
+	case DIRECTION_RIGHT_UP:
+	    movePlane(MOVE_SIZE, MOVE_SIZE);
+	    break;
+	case DIRECTION_LEFT_DOWN:
+	    movePlane(-MOVE_SIZE, -MOVE_SIZE);
+	    break;
+	case DIRECTION_RIGHT_DOWN:
+	    movePlane(MOVE_SIZE, -MOVE_SIZE);
 	    break;
     }
 }
