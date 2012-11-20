@@ -1,9 +1,12 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <string.h>
 #include "util.h"
 
 int global_seed = 0;
+
+extern long startTime;
 
 float toRadians(int degree) 
 {
@@ -19,6 +22,16 @@ void drawCircle(float r)
         glVertex2f(r*cos(ra), r*sin(ra));
     }
     glEnd();
+}
+
+void drawString(int x, int y, char* str) 
+{
+    glRasterPos2i(x, y);
+
+    int i;
+    for (i = 0; i < strlen(str); i ++) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str[i]);
+    }
 }
 
 int timeRand()

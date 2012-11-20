@@ -17,6 +17,7 @@ void drawPlane();
 void movePlane(int x, int y);
 void movePlaneInDirection(int key);
 void drawDots();
+void drawString(int x, int y, char* str);
 bool isCollision();
 
 void setColor(int color);
@@ -38,17 +39,18 @@ void freeAllNodes();
 
 dot* createDotFromEdge();
 
-//Timer function test.
 void resetTimeData();
 void updateTimeData();
 
 bool isControllerKey(char key);
 void controlPlane(char key);
 
-//TODO implement them.
 void resetKeyStatus();
 int getPlaneDirection();
 void pressKey(char key);
 void releaseKey(char key);
 
 void controlPlaneRelease(char key);
+
+void resetGame();
+

@@ -1,8 +1,11 @@
 #include <string.h>
 #include "util.h"
+#include "time.h"
 
 int updateCount;
 int gameStatus = STATUS_NORMAL;
+long startTime;
+long lastingTime = -1;
 
 void init(void) 
 {
@@ -12,12 +15,12 @@ void init(void)
 
 void drawRecord()
 {
-    glRasterPos2f(-10, -10);
-    char status[] = {"hongbosb"};
-    int i;
-    for (i = 0; i < strlen(status); i ++) {
-        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, status[i]);
-    }
+    char ts[256];
+    sprintf(ts, "%ld s", lastingTime);
+    drawString(-50, 0, ts);
+
+    char reputation[] = {"hongbosb"};
+    drawString(-50, -10, reputation);
 }
 
 void display(void)
@@ -52,6 +55,11 @@ void keyboard(unsigned char key, int x, int y)
        case 27:
            exit(0);
            break;
+       case 'r':
+           if (gameStatus == STATUS_FINISHED) {
+               resetGame();
+           }
+           return;
    }
 
    if (isControllerKey(key)) {
@@ -59,9 +67,15 @@ void keyboard(unsigned char key, int x, int y)
    }
 }
 
-//TODO Reset key status.
-void reset() 
+void resetGame() 
 {
+    resetKeyStatus();
+    resetTimeData();
+    freeAllNodes();
+
+    startTime = time(NULL);
+    lastingTime = -1;
+    gameStatus = STATUS_NORMAL;
 }
 
 void keyboardUp(unsigned char key, int x, int y)
@@ -71,13 +85,22 @@ void keyboardUp(unsigned char key, int x, int y)
    }
 }
 
+void finishGame() 
+{
+    gameStatus = STATUS_FINISHED;
+
+    if (lastingTime == -1) {
+        lastingTime = time(NULL) - startTime;
+    }
+}
+
 void viewTimer(int value)
 {
 
     //When collision happens, just stop animation.
     //TODO Display a game report data. such as lasting time, reputation.
     if (isCollision()) {
-        gameStatus = STATUS_FINISHED;
+        finishGame();
     } else {
         updateDots();
     }
@@ -120,6 +143,8 @@ int main(int argc, char** argv)
    glutTimerFunc(REFRESH_INTERVAL, viewTimer, 0);
    glutTimerFunc(UPDATE_DATA_INTERVAL, dataTimer, 0);
    glutTimerFunc(MOVE_INTERVAL, moveTimer, 0);
+
+   startTime = time(NULL);
 
    glutMainLoop();
    return 0;
