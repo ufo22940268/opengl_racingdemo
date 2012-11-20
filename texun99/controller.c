@@ -47,7 +47,7 @@ int getSingleDirection(int status)
 
 bool isControllerKey(char key) 
 {
-    if (key == KEY_UP | key == KEY_DOWN | key == KEY_LEFT | key == KEY_RIGHT) {
+    if (key == KEY_UP || key == KEY_DOWN || key == KEY_LEFT || key == KEY_RIGHT) {
         return true;
     } else {
         return false;
@@ -70,7 +70,7 @@ void releaseKey(char key)
 
     //Check if the key was pressed before.
     //If the key wasn't pressed before, then just return.
-    if (flag&keyStatus == 0) {
+    if ((flag&keyStatus) == 0) {
         return;
     }
 
@@ -84,20 +84,6 @@ void resetKeyStatus()
 
 int getPlaneDirection()
 {
-    /*if (keyStatus == FLAG_VOID || keyStatus == (FLAG_LEFT|FLAG_RIGHT) || keyStatus == (FLAG_UP|FLAG_DOWN) || keyStatus == (FLAG_LEFT|FLAG_UP|FLAG_RIGHT|FLAG_DOWN)) {*/
-        /*return DIRECTION_VOID;*/
-    /*}*/
-
-    /*//Single direction.*/
-    /*if (keyStatus&(FLAG_LEFT|FLAG_RIGHT) == 0 ||*/
-            /*keyStatus&(FLAG_UP|FLAG_DOWN) == 0) {*/
-        /*return getSingleDirection(keyStatus);*/
-    /*}*/
-
-    /*//Two way direction.*/
-    /*if (keyStatus^FLAG_UP) {*/
-    /*}*/
-
     //Check void status.
     if (keyStatus == FLAG_VOID || keyStatus == (FLAG_LEFT|FLAG_RIGHT) || keyStatus == (FLAG_UP|FLAG_DOWN) || keyStatus == (FLAG_LEFT|FLAG_UP|FLAG_RIGHT|FLAG_DOWN)) {
         return DIRECTION_VOID;
