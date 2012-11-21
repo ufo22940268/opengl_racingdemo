@@ -15,6 +15,9 @@ void init(void)
 
 void drawRecord()
 {
+    char str[] = {"Press R to restart"};
+    drawString(-50, 10, str);
+
     char ts[256];
     sprintf(ts, "%ld s", lastingTime);
     drawString(-50, 0, ts);

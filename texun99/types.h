@@ -8,6 +8,7 @@
 
 #define   SPEED_UNIT             2
 #define   DOT_UNIT               2
+#define   BEND_UNIT              3.14/6
 
 #define   UPDATE_DATA_INTERVAL   3000
 #define   REFRESH_INTERVAL       50

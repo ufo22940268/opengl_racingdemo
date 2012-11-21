@@ -116,6 +116,35 @@ bool isCollision()
     return false;
 }
 
+bool closerNewAngle(dot* d, float newAngle)
+{
+    float oldAngle = d->angle;
+    int d1 = distant(planeX, planeY, d->x + cos(oldAngle), d->y + sin(oldAngle));
+    int d2 = distant(planeX, planeY, d->x + cos(newAngle), d->y + sin(newAngle));
+    return d1 < d2;
+}
+
+//TODO
+void bendAngle(dot* d) 
+{
+    //Bend dot a bit if the dot fly towards plane.
+    float oldAngle = d->angle;
+
+    float newAngle = oldAngle + BEND_UNIT;
+    if (closerNewAngle(d, newAngle)) {
+        d->angle = newAngle;
+        return;
+    }
+
+    newAngle = oldAngle - BEND_UNIT;
+    if (closerNewAngle(d, newAngle)) {
+        d->angle = newAngle;
+        return;
+    }
+
+    //If the dot if fly away from plane, then don't bend the dot.
+}
+
 void dotToString(dot* d)
 {
     if (d == NULL) {

@@ -38,6 +38,7 @@ int nodesSize();
 void freeAllNodes();
 
 dot* createDotFromEdge();
+void bendAngle(dot* d);
 
 void resetTimeData();
 void updateTimeData();

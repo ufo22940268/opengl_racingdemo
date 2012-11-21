@@ -9,10 +9,8 @@ int gameStatus = STATUS_NORMAL;
 
 extern float planeX;
 extern float planeY;
-
 extern int speed;
 extern int dotCount;
-
 extern int keyStatus;
 
 void testChooseEdge()
@@ -184,6 +182,25 @@ void testKeyboard()
     assert(getPlaneDirection() == DIRECTION_VOID);
 }
 
+void testBend()
+{
+    int i;
+    planeX = 1;
+    planeY = 1;
+    for (i = 0; i < 10; i ++) {
+        printf("%d\n", i);
+        dot d = {.x=timeRand(), .y=timeRand(), .angle=timeRand()};
+        float oldAngle = d.angle;
+        bendAngle(&d);
+        float newAngle = d.angle; 
+        assert(oldAngle != newAngle);
+
+        int d1 = distant(planeX, planeY, d.x + cos(oldAngle), d.y + sin(oldAngle));
+        int d2 = distant(planeX, planeY, d.x + cos(newAngle), d.y + sin(newAngle));
+        assert(d1 > d2);
+    }
+}
+
 void testC()
 {
     int color = 0x66ccff;
@@ -201,6 +218,7 @@ int main()
     testUtils();
     testUpdate();
     testKeyboard();
+    testBend();
 
     //One shot test.
     testC();
