@@ -6,15 +6,20 @@ int updateCount;
 int gameStatus = STATUS_NORMAL;
 long startTime;
 long lastingTime = -1;
+long currentTime;
+
+extern int flyStatus;
 
 void init(void) 
 {
-   glClearColor (0.0, 0.0, 0.0, 0.0);
+   glClearColor ((float)0.0, (float)0.0, (float)0.0, (float)0.0);
    glShadeModel (GL_FLAT);
 }
 
 void drawRecord()
 {
+    setColor(COLOR_WHITE);
+
     char str[] = {"Press R to restart"};
     drawString(-50, 10, str);
 
@@ -24,6 +29,27 @@ void drawRecord()
 
     char reputation[] = {"hongbosb"};
     drawString(-50, -10, reputation);
+}
+
+void drawDotStatus()
+{
+    setColor(COLOR_WHITE);
+
+    char speedUp[] = {"Speed up"};
+    char bend[] = {"Tracing"};
+    char speedUpBend[] = {"Speed up and tracing"};
+
+    if (flyStatus == FLY_VOID) {
+        return;
+    } else if (flyStatus == (FLY_BEND | FLY_SPEED_UP)) {
+        drawFlyStatusString(speedUpBend);
+    } else if (flyStatus == FLY_BEND) {
+        drawFlyStatusString(bend);
+    } else if (flyStatus == FLY_SPEED_UP) {
+        drawFlyStatusString(speedUp);
+    } else {
+        printf("error\n");
+    }
 }
 
 void display(void)
@@ -36,6 +62,8 @@ void display(void)
 
    if (gameStatus == STATUS_FINISHED) {
        drawRecord();
+   } else {
+       drawDotStatus();
    }
 
    glFlush();
@@ -79,6 +107,7 @@ void resetGame()
     startTime = time(NULL);
     lastingTime = -1;
     gameStatus = STATUS_NORMAL;
+    flyStatus = FLY_VOID;
 }
 
 void keyboardUp(unsigned char key, int x, int y)
@@ -97,6 +126,21 @@ void finishGame()
     }
 }
 
+void debug()
+{
+    if (flyStatus == FLY_VOID) {
+        printf("none\n");
+    } else if (flyStatus == (FLY_BEND | FLY_SPEED_UP)) {
+        printf("speed up and bend angle\n");
+    } else if (flyStatus == FLY_BEND) {
+        printf("bend\n");
+    } else if (flyStatus == FLY_SPEED_UP) {
+        printf("speed up\n");
+    } else {
+        printf("error\n");
+    }
+}
+
 void viewTimer(int value)
 {
 
@@ -108,6 +152,9 @@ void viewTimer(int value)
         updateDots();
     }
 
+    //Update current time.
+    currentTime = time(NULL);
+
     glutPostRedisplay();
     glutTimerFunc(REFRESH_INTERVAL, viewTimer, 0);
 }
@@ -117,7 +164,17 @@ void dataTimer(int value)
     if (gameStatus == STATUS_NORMAL) {
         updateTimeData();
     }
+
+    debug();
+
     glutTimerFunc(UPDATE_DATA_INTERVAL, dataTimer, 0);
+}
+
+void bendAngleTimer(int value)
+{
+    //Bend all dots.
+    bendAllDots();
+    glutTimerFunc(UPDATE_BEND_ANGLE_INTERVAL, bendAngleTimer, 0);
 }
 
 void moveTimer(int value) 
@@ -131,10 +188,11 @@ void moveTimer(int value)
 int main(int argc, char** argv)
 {
    glutInit(&argc, argv);
-   glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
-   glutInitWindowSize (WINDOW_WIDTH, WINDOW_HEIGHT); 
-   glutInitWindowPosition (100, 100);
-   glutCreateWindow (argv[0]);
+   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+   glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT); 
+   glutInitWindowPosition(100, 100);
+   glutCreateWindow(argv[0]);
+
    init ();
 
    glutDisplayFunc(display); 
@@ -145,6 +203,7 @@ int main(int argc, char** argv)
 
    glutTimerFunc(REFRESH_INTERVAL, viewTimer, 0);
    glutTimerFunc(UPDATE_DATA_INTERVAL, dataTimer, 0);
+   glutTimerFunc(UPDATE_BEND_ANGLE_INTERVAL, bendAngleTimer, 0);
    glutTimerFunc(MOVE_INTERVAL, moveTimer, 0);
 
    startTime = time(NULL);

@@ -1,6 +1,7 @@
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Darwin)
+    #CFLAG := -framework GLUT -framework OpenGL -g -Wall -Wconversion
     CFLAG := -framework GLUT -framework OpenGL -g -Wall
 else
     CFLAG := -lm -lglut -lGL -lGLU -g -Wall

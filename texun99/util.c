@@ -34,6 +34,10 @@ void drawString(int x, int y, char* str)
     }
 }
 
+void drawFlyStatusString(char* str) {
+    drawString(-100, 90, str);
+}
+
 int timeRand()
 {
     srand(time(NULL) * global_seed);
@@ -55,7 +59,7 @@ void setColor(int color)
     glColor3f(r, g, b);
 }
 
-double distant(int xa, int ya, int xb, int yb) 
+double distant(double xa, double ya, double xb, double yb) 
 {
     return sqrt(pow(xa - xb, 2) + pow(ya - yb, 2));
 }

@@ -15,8 +15,20 @@ void drawPlane()
     glPopMatrix();
 }
 
+bool isMoveIllegal(int x, int y) {
+    if (abs(planeX + x) > 100 || abs(planeY + y) > 100) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void movePlane(int x, int y)
 {
+    if (isMoveIllegal(x, y)) {
+        return;
+    }
+
     planeX += x;
     planeY += y;
 }

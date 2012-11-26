@@ -17,7 +17,9 @@ void drawPlane();
 void movePlane(int x, int y);
 void movePlaneInDirection(int key);
 void drawDots();
+void setDotColor();
 void drawString(int x, int y, char* str);
+void drawFlyStatusString(char* str);
 bool isCollision();
 
 void setColor(int color);
@@ -27,7 +29,7 @@ void chooseEdge(int *x, int *y);
 
 int timeRand();
 float timeRandf(); 
-double distant(int xa, int ya, int xb, int yb);
+double distant(double xa, double ya, double xb, double yb);
 
 void dotToString(dot* d);
 
@@ -39,6 +41,7 @@ void freeAllNodes();
 
 dot* createDotFromEdge();
 void bendAngle(dot* d);
+void bendAllDots();
 
 void resetTimeData();
 void updateTimeData();
@@ -55,3 +58,13 @@ void controlPlaneRelease(char key);
 
 void resetGame();
 
+bool closerNewAngle(dot* d, float newAngle);
+
+/**
+ * Is the right angle to fly towards to zero point.
+ */
+bool isRightAngle(int x, int y, float angle);
+
+bool shouldBendDots();
+bool shouldSpeedUpDots();
+bool shouldSpeedUpDotsPermanentaly();

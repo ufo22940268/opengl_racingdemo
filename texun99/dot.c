@@ -10,6 +10,9 @@ extern float planeY;
 
 extern int speed;
 extern int dotCount;
+extern bool dotStatusSpeedUp;
+
+extern int flyStatus;
 
 void chooseEdge(int *x, int *y)
 {
@@ -38,7 +41,7 @@ dot* createDotFromEdge()
     chooseEdge(&x, &y);
 
     //Choose vector.
-    float angle = timeRand();
+    float angle = timeRand()%20;
     if (!isRightAngle(x, y, angle)) {
         angle += M_PI;
     }
@@ -54,8 +57,9 @@ void updatePosition()
     linked_node *cur = getHeaderNode();
     while (cur) {
         dot *d = cur->dot;
-        d->x += speed*cos(d->angle);
-        d->y += speed*sin(d->angle);
+        int realSpeed = speed + (dotStatusSpeedUp == true ? 2 : 0);
+        d->x += realSpeed*cos(d->angle);
+        d->y += realSpeed*sin(d->angle);
         if (abs(d->x) > 100 || abs(d->y) > 100) {
             deleteDot(d);
         }
@@ -65,11 +69,25 @@ void updatePosition()
 
 void drawDot(dot *d)
 {
-    glColor3f(1, 1, 1);
+    /*glColor3f(1, 1, 1);*/
+    setDotColor();
     glPointSize(3);
     glBegin(GL_POINTS);
     glVertex2i(d->x, d->y);
     glEnd();
+}
+
+void setDotColor()
+{
+    if (flyStatus == (FLY_BEND | FLY_SPEED_UP)) {
+        setColor(COLOR_BEND_SPEED_UP);
+    } else if (flyStatus == FLY_BEND) {
+        setColor(COLOR_BEND);
+    } else if (flyStatus == FLY_SPEED_UP) {
+        setColor(COLOR_SPEED_UP);
+    } else {
+        setColor(COLOR_VOID);
+    }
 }
 
 void drawDots()
@@ -106,7 +124,6 @@ bool isCollision()
     linked_node *cur = getHeaderNode();
     while (cur) {
         dot* d = cur->dot;
-        /*printf("x %d, y %d, planeX %f, planeY %f\n", d->x, d->y, planeX, planeY);*/
         if (distant(d->x, d->y, planeX, planeY) <= PLANE_SIZE) {
             return true;
         }
@@ -119,18 +136,17 @@ bool isCollision()
 bool closerNewAngle(dot* d, float newAngle)
 {
     float oldAngle = d->angle;
-    int d1 = distant(planeX, planeY, d->x + cos(oldAngle), d->y + sin(oldAngle));
-    int d2 = distant(planeX, planeY, d->x + cos(newAngle), d->y + sin(newAngle));
-    return d1 < d2;
+    double d1 = distant(planeX, planeY, d->x + cos(oldAngle), d->y + sin(oldAngle));
+    double d2 = distant(planeX, planeY, d->x + cos(newAngle), d->y + sin(newAngle));
+    return d1 > d2;
 }
 
-//TODO
 void bendAngle(dot* d) 
 {
     //Bend dot a bit if the dot fly towards plane.
-    float oldAngle = d->angle;
+    double oldAngle = d->angle;
 
-    float newAngle = oldAngle + BEND_UNIT;
+    double newAngle = oldAngle + BEND_UNIT;
     if (closerNewAngle(d, newAngle)) {
         d->angle = newAngle;
         return;
