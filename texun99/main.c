@@ -95,6 +95,13 @@ void reshape (int w, int h)
 
 void keyboard(int key, int x, int y)
 {
+   if (isControllerKey(key)) {
+       controlPlane(key);
+   }
+}
+
+void keyboardReset(unsigned char key, int x, int y)
+{
    switch (key) {
        case 27:
            exit(0);
@@ -104,10 +111,6 @@ void keyboard(int key, int x, int y)
                resetGame();
            }
            return;
-   }
-
-   if (isControllerKey(key)) {
-       controlPlane(key);
    }
 }
 
@@ -209,6 +212,7 @@ int main(int argc, char** argv)
 
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
+   glutKeyboardFunc(keyboardReset);
    glutSpecialFunc(keyboard);
    glutSpecialUpFunc(keyboardUp);
    glutIgnoreKeyRepeat(1);
