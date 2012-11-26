@@ -93,7 +93,7 @@ void reshape (int w, int h)
    gluLookAt (0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
-void keyboard(unsigned char key, int x, int y)
+void keyboard(int key, int x, int y)
 {
    switch (key) {
        case 27:
@@ -123,7 +123,7 @@ void resetGame()
     flyStatus = FLY_VOID;
 }
 
-void keyboardUp(unsigned char key, int x, int y)
+void keyboardUp(int key, int x, int y)
 {
    if (isControllerKey(key)) {
        controlPlaneRelease(key);
@@ -209,8 +209,8 @@ int main(int argc, char** argv)
 
    glutDisplayFunc(display); 
    glutReshapeFunc(reshape);
-   glutKeyboardFunc(keyboard);
-   glutKeyboardUpFunc(keyboardUp);
+   glutSpecialFunc(keyboard);
+   glutSpecialUpFunc(keyboardUp);
    glutIgnoreKeyRepeat(1);
 
    glutTimerFunc(REFRESH_INTERVAL, viewTimer, 0);

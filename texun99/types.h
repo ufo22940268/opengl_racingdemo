@@ -22,10 +22,10 @@
 #define   STATUS_NORMAL          0
 #define   STATUS_FINISHED        1
 
-#define   KEY_UP                 'w'
-#define   KEY_DOWN               's'
-#define   KEY_LEFT               'a'
-#define   KEY_RIGHT              'd'
+#define   KEY_UP                 GLUT_KEY_UP
+#define   KEY_DOWN               GLUT_KEY_DOWN
+#define   KEY_LEFT               GLUT_KEY_LEFT
+#define   KEY_RIGHT              GLUT_KEY_RIGHT
 
 #define   FLAG_VOID              0x0000
 #define   FLAG_LEFT              0x0001
