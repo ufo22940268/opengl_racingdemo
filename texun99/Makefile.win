@@ -1,0 +1,17 @@
+#Reference 
+#http://www.transmissionzero.co.uk/computing/using-glut-with-mingw/
+#http://stackoverflow.com/questions/2568067/using-gcc-mingw-to-compile-opengl-on-windows
+CFLAG := -lopengl32 -lglu32 -lfreeglut -Wall
+
+PUB_SRC := util.c plane.c dot.c linked_dots.c controller.c time_data.c
+SRC := main.c $(PUB_SRC)
+TEST_SRC := test.c $(PUB_SRC)
+
+	#gcc -c -o example.o $(SRC) -I"C:\MinGW\freeglut\include"
+.PHONY : main
+main: $(SRC)
+	gcc $(SRC)  -I"C:\MinGW\freeglut\include" -L"C:\MinGW\freeglut\lib" -lfreeglut -lopengl32 -lglu32
+
+.PHONY : test
+test: $(TEST_SRC)
+	gcc $(CFLAG) $(TEST_SRC)
