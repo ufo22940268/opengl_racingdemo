@@ -10,10 +10,24 @@ long currentTime;
 
 extern int flyStatus;
 
+char reputations[8][256] = {"hongbosb", "shijiesb", "hongxingsb", "laobansb", "feijisb"};
+
 void init(void) 
 {
    glClearColor ((float)0.0, (float)0.0, (float)0.0, (float)0.0);
    glShadeModel (GL_FLAT);
+}
+
+void drawReputation()
+{
+    int lv = (currentTime - startTime)/10;
+    char *reputation;
+    if (lv < 5) {
+        reputation = reputations[lv];
+    } else {
+        reputation = reputations[4];
+    }
+    drawString(-50, -10, reputation);
 }
 
 void drawRecord()
@@ -27,8 +41,7 @@ void drawRecord()
     sprintf(ts, "%ld s", lastingTime);
     drawString(-50, 0, ts);
 
-    char reputation[] = {"hongbosb"};
-    drawString(-50, -10, reputation);
+    drawReputation();
 }
 
 void drawDotStatus()
@@ -165,8 +178,7 @@ void dataTimer(int value)
         updateTimeData();
     }
 
-    debug();
-
+    /*debug();*/
     glutTimerFunc(UPDATE_DATA_INTERVAL, dataTimer, 0);
 }
 
